@@ -1,3 +1,4 @@
 Auto-Generated Selenium Webdriver Test Automation Code using Page Objects for Content Management Systems
+======================
 
 Developing test automation code for a web project often requires more time defining the specific test objects than the bandwidth allocated for the test engineer. since all of the tedious automation framework coding is automatically created, auto-generating the test automation code and test framework can provide a test team with a huge advantage when attempting to provide a well defined test process to a software project. This allows the test automation engineer to focus more on the specific test cases and less on the object definitions/API calls used. In order to achieve this goal, this project will use a unique concept in many QA teams: create automation code to create automation code. This automation framework would be very valuable to companies looking to quickly add a layer of test automation to their website project.
