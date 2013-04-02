@@ -1,0 +1,12 @@
+# This pulls in all the libraries needed to run Selenium tests
+
+selenium
+py==1.4.7
+pytest==2.2.3
+pytest-xdist==1.8
+PyYAML==3.10
+execnet==1.0.9
+BeautifulSoup==3.2.0
+pytest-mozwebqa==1.1
+UnittestZero
+requests==0.11.2

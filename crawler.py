@@ -1,16 +1,7 @@
 #!/usr/bin/env python
 
-"""Web Crawler/Spider
-
-This module implements a web crawler. This is very _basic_ only
-and needs to be extended to do anything usefull with the
-traversed pages.
-
-From: http://code.activestate.com/recipes/576551-simple-web-crawler/
-
-"""
-
 import re
+import os
 import sys
 import time
 import math
@@ -18,22 +9,28 @@ import urllib2
 import urlparse
 import optparse
 import hashlib
+import fileinput
+import shutil, errno
+
+from tempfile import mkstemp
+from shutil import move
+from os import remove, close
+
+
 from cgi import escape
 from traceback import format_exc
 from Queue import Queue, Empty as QueueEmpty
 
 from bs4 import BeautifulSoup
+from HTMLParser import HTMLParser
+
 
 __version__ = "0.2"
-__copyright__ = "CopyRight (C) 2008-2011 by James Mills"
-__license__ = "MIT"
-__author__ = "James Mills"
-__author_email__ = "James Mills, James dot Mills st dotred dot com dot au"
-
 USAGE = "%prog [options] <url>"
 VERSION = "%prog v" + __version__
 
 AGENT = "%s/%s" % (__name__, __version__)
+
 
 class Link (object):
 
@@ -42,6 +39,14 @@ class Link (object):
         self.dst = dst
         self.link_type = link_type
 
+    """
+    NOTE: If your class is intended to be subclassed, and you have attributes that 
+    you do not want subclasses to use, consider naming them with double leading 
+    underscores and no trailing underscores. This invokes Python's name mangling 
+    algorithm, where the name of the class is mangled into the attribute name. 
+    This helps avoid attribute name collisions should subclasses inadvertently 
+    contain attributes with the same name.
+    """
     def __hash__(self):
         return hash((self.src, self.dst, self.link_type))
 
@@ -55,21 +60,24 @@ class Link (object):
 
 class Crawler(object):
 
+    """
+    The Crawler repeatedly searches an HTML parse tree starting from the supplied URL.
+    """
+
     def __init__(self, root, depth_limit, confine=None, exclude=[], locked=True, filter_seen=True):
         self.root = root
         self.host = urlparse.urlparse(root)[1]
 
         ## Data for filters:
         self.depth_limit = depth_limit # Max depth (number of hops from root)
-        self.locked = locked           # Limit search to a single host?
+        self.locked = locked           # Limit search to a single host
         self.confine_prefix=confine    # Limit search to this prefix
         self.exclude_prefixes=exclude; # URL prefixes NOT to visit
                 
-
         self.urls_seen = set()          # Used to avoid putting duplicates in queue
-        self.urls_remembered = set()    # For reporting to user
+        self.urls_remembered = set()    # Used for reporting to user
         self.visited_links= set()       # Used to avoid re-processing a page
-        self.links_remembered = set()   # For reporting to user
+        self.links_remembered = set()   # Used for reporting to user
         
         self.num_links = 0              # Links found (and not excluded by filters)
         self.num_followed = 0           # Links followed.  
@@ -83,28 +91,26 @@ class Crawler(object):
         # Out-url filters: When examining a visited page, only process
         # links where the target matches these filters.        
         if filter_seen:
-            self.out_url_filters=[self._prefix_ok,
-                                     self._same_host]
+            self.out_url_filters=[self._prefix_ok, 
+                                  self._same_host]
         else:
             self.out_url_filters=[]
 
     def _pre_visit_url_condense(self, url):
         
-        """ Reduce (condense) URLs into some canonical form before
-        visiting.  All occurrences of equivalent URLs are treated as
-        identical.
-
-        All this does is strip the \"fragment\" component from URLs,
-        so that http://foo.com/blah.html\#baz becomes
-        http://foo.com/blah.html """
+        """All this does is strip the \"fragment\" component from URLs,
+        so that http://plu.edu/csce499.html\#csce499 becomes
+        http://plu.edu/csce499.html """
 
         base, frag = urlparse.urldefrag(url)
         return base
 
-    ## URL Filtering functions.  These all use information from the
-    ## state of the Crawler to evaluate whether a given URL should be
-    ## used in some context.  Return value of True indicates that the
-    ## URL should be used.
+    """
+    ## URL Filtering functions: 
+    ## These all use information from the state of the Crawler to evaluate 
+    ## whether a given URL should be used in some context.  Return value 
+    ## of True indicates that the URL should be used.
+    """
     
     def _prefix_ok(self, url):
         """Pass if the URL has the correct prefix, or none is specified"""
@@ -132,20 +138,17 @@ class Crawler(object):
 
     def crawl(self):
 
-        """ Main function in the crawling process.  Core algorithm is:
+        """ 
+        The Crawler component  repeatedly searches the HTML parse tree for <A> tags. To be 
+        added to the search queue, the <A> tag must meet the following conditions:
 
-        q <- starting page
-        while q not empty:
-           url <- q.get()
-           if url is new and suitable:
-              page <- fetch(url)   
-              q.put(urls found in page)
-           else:
-              nothing
+        1) The URL must be within the specific depth limit provided by the user.
+        2) The URL must be new and one that hasn't been visited by the crawl queue previously.
+        3) The URL must not match any of the "do not follow" filters defined by the user. 
 
-        new and suitable means that we don't re-visit URLs we've seen
-        already fetched, and user-supplied criteria like maximum
-        search depth are checked. """
+        The Crawler will continue to execute until all URL's in the siteparse tree have 
+        been visited and searched for additional URL's. Once this has completed the Crawler will exit.
+        """
         
         q = Queue()
         q.put((self.root, 0))
@@ -164,7 +167,7 @@ class Crawler(object):
             if depth == 0 and [] != do_not_follow:
                 print >> sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow
 
-            #If no filters failed (that is, all passed), process URL
+            #If no filters failed, process URL
             if [] == do_not_follow:
                 try:
                     self.visited_links.add(this_url)
@@ -184,19 +187,31 @@ class Crawler(object):
                                 if link not in self.links_remembered:
                                     self.links_remembered.add(link)
                 except Exception, e:
-                    print >>sys.stderr, "ERROR: Can't process url '%s' (%s)" % (this_url, e)
+                    print >>sys.stderr, "ERROR: Can't process URL '%s' (%s)" % (this_url, e)
                     #print format_exc()
 
-class OpaqueDataException (Exception):
+class OpaqueDataTypeException (Exception):
+    
+    """
+    Opaque Data type is a data type that is incompletely defined in an 
+    interface, so that its values can only be manipulated by calling 
+    subroutines that have access to the missing information. The concrete 
+    representation of the type is hidden from its users. (WIKIPEDIA)
+    """
+
     def __init__(self, message, mimetype, url):
+
         Exception.__init__(self, message)
-        self.mimetype=mimetype
+        self.mimetype=mimetype #Multi-Purpose Intenet Mail Extensions 
         self.url=url
         
 
 class Fetcher(object):
     
-    """The name Fetcher is a slight misnomer: This class retrieves and interprets web pages."""
+    """
+    The Fetcher class is used to retrieve and interpretting web pages
+    using the BeautifulSoup library for screen-scraping HTML. 
+    """
 
     def __init__(self, url):
         self.url = url
@@ -229,12 +244,12 @@ class Fetcher(object):
                 mime_type=data.info().gettype()
                 url=data.geturl();
                 if mime_type != "text/html":
-                    raise OpaqueDataException("Not interested in files of type %s" % mime_type,
+                    raise OpaqueDataTypeException("Not interested in files of type %s" % mime_type,
                                               mime_type, url)
                 content = unicode(data.read(), "utf-8",
                         errors="replace")
                 soup = BeautifulSoup(content)
-                tags = soup('a')
+                tags = soup('a') # Scrape 'a' from HREF using BeautufulSoup object
             except urllib2.HTTPError, error:
                 if error.code == 404:
                     print >> sys.stderr, "ERROR: %s -> %s" % (error, error.url)
@@ -244,25 +259,414 @@ class Fetcher(object):
             except urllib2.URLError, error:
                 print >> sys.stderr, "ERROR: %s" % error
                 tags = []
-            except OpaqueDataException, error:
+            except OpaqueDataTypeException, error:
                 print >>sys.stderr, "Skipping %s, has type %s" % (error.url, error.mimetype)
                 tags = []
             for tag in tags:
                 href = tag.get("href")
+                pattern = '()@;'
                 if href is not None:
                     url = urlparse.urljoin(self.url, escape(href))
                     if url not in self:
-                        self.out_urls.append(url)
+                        if url[-1:] != '/':
+                            #Omit URL's that are email or other none pages
+                            r = re.compile('[()@]')
+                            if not r.search(url):
+                                self.out_urls.append(url)
+                    print url
+
+                    scraper = Scraper()
+                    scraper.scrapePage(content, url) #Scrape page for specific HTML elements
+
+
+
+class Generate(object):
+
+    def __init__(self):
+        self
+
+    def copyAnything(self, src, dst):
+        try:
+            shutil.copytree(src, dst)
+        except OSError as exc: # python >2.5
+            if exc.errno == errno.ENOTDIR:
+                shutil.copy(src, dst)
+            else: raise
+
+    def generateFramework(self):
+
+        dir_framework = dest_dir
+        
+        #Erase previous generation
+        if os.path.isdir(dir_framework):
+            shutil.rmtree(dir_framework)
+
+        os.mkdir(dir_framework)
+        os.mkdir(dir_framework + "/browserid")
+        os.mkdir(dir_framework + "/docs")
+        os.mkdir(dir_framework + "/pages")
+        os.mkdir(dir_framework + "/tests")
+        os.mkdir(dir_framework + "/utils")
+           
+
+    def generateVariable(self, fh, var, define):
+
+        if var is '_page_title': 
+           fh.write("\n    " + var + " = \"" + define + "\"")
+        else:
+           fh.write("\n    " + var + " = " + define)
+
+
+    def generateFindElement(self, fh, var):
+
+        wc1 = "{{WILDCARD1}}"
+        wc2 = "{{WILDCARD2}}"
+
+        lib_page_is_element_visible = "lib/page_is_element_visible.py"
+
+        content = open(lib_page_is_element_visible).read()
+        replacedText = content.replace(wc1, var)
+        replacedText = replacedText.replace(wc2, var)
+
+        fh.write("\n" + replacedText)
+
+#    """
+
+#    """
+#    def generateVerifyElement():
+#        return
+
+#    """
+
+    def generateTestElement(self, classname, testMethods):
+
+        filename = "test_" + classname + ".py"
+        outputFile = dest_dir + "/tests/" + filename
+        fh = open(outputFile, "w")
+
+        fh.write("#!/usr/bin/env python")
+        fh.write("\n")
+        fh.write("import pytest\n")
+        fh.write("from unittestzero import Assert\n")
+        fh.write("from pages." + classname.lower() + " import " + classname + "\n")
+        fh.write("\nclass HeaderMenu:\n")
+        fh.write("\n")
+
+        lib_test_element_header = "lib/test_element_header.py"
+        defaultDef = open(lib_test_element_header).read()
+        fh.write(defaultDef + "\n")
+
+        fh.write("class " + classname + ":\n")
+        
+        #CLIFF NOTE: Add Page Title Test
+
+        for test in testMethods:
+            fh.write("\n    @pytest.mark.nondestructive\n")
+            fh.write("    def test_" + test + "(self, mozwebqa):\n")
+            fh.write("\n")
+            fh.write("        page = " + classname + "(mozwebqa)\n")
+            fh.write("        Assert.true(page." + test + ")\n")
+            
+        #GOTIME
+        return
+
+
+class Scraper(object):
+    
+    """
+    The Scraper class is used to scrape a visited page for specific HTML elements. The 
+    following is a list of all HTML elements that are scraped from the page:
+
+       1) Page Title
+       2) All DIV's with ID tag
+       3) H1 Text
+       4) Image Files
+       5) Radio Buttons
+       6) Checkboxes
+       7) Text Fields
+       8) Password Text Fields
+       9) Buttons
+
+    Please review the Design Document regarding the specific HTML elements parsed and naming convention.
+    """
+
+    def __init__(self):
+        self
+
+    """
+    Method used to remote HTML tags. 
+    Call using the following example syntax: removeTags(testhtml, 'b', 'p')
+    """
+    def removeTags(html, *tags):
+        soup = BeautifulSoup(html)
+        for tag in tags:
+            for tag in soup.findAll(tag):
+                tag.replaceWith("")
+
+        return soup
+
+
+    def scrapePage(self, content, url):
+        
+        soup = BeautifulSoup(content)
+        
+        testMethods = []
+
+        parse_object = urlparse.urlparse(url)
+        filepath = parse_object.path[1:]
+        filepath = filepath.replace ("/", "_")
+        filepath = filepath.replace (".", "_")
+        filepath = filepath.replace ("-", "_")
+        filepath = filepath.rstrip('_')
+
+        #Create Class Name
+        classname = filepath.title()
+        classname = classname.replace ("_", "")
+        filename = dest_dir + "/pages/" + filepath + ".py" #Improve this later (no hard coding)...
+        
+        #Create new page object file using file name Class Name
+        fh = open(filename, "w")
+        print"\nURL - " + filepath
+        print"\nFILEPATH - " + classname 
+        fh.write("#!/usr/bin/env python")
+        ph = open("lib/page_header.py", "r")
+        fh.write("\n\n" + ph.read())
+        ph.close()
+        fh.write("\n\nclass " + classname + "(Base):\n") 
+        
+
+        """
+        Parse Title:
+           (a) HTML Syntax: <title>CSCE 499 - Design Document</title>
+           (b) BeautifulSoup Syntax: print soup.head.title
+           (c) Variable Definition: _page_title = "CSCE 499 - Design Document"
+           (d) Generated Selenium: The generated code should verify that the title string matches the ex-
+               pected text as defined by the title variable.
+
+        """
+        print "\nPARSE PAGE TITLE"
+        fh.write("\n\n    # Page Title Variable")
+        title = soup.head.title.string 
+        gen = Generate()
+        gen.generateVariable(fh, "_page_title", title)
+        print title
+
+        """
+        All DIV with ID tag
+           (a) HTML Syntax: <div id="banner-top">
+           (b) BeautifulSoup Syntax: divs = soup.findAll('div','id':True)
+           (c) Variable Definition: _div_banner_top_locator = (By.ID, "banner-top")
+           (d) Generated Selenium: The generated code should verify that the DIV ID exists on the page.
+        """
+        print "\nPARSE ALL DIVS WITH IDS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+
+        fh.write("\n\n    # Variables defined by ID element")
+        divs = soup.findAll('div',{'id':True})    
+        for div in divs:
+            #print div
+	    d = div['id']
+            print d 
+            print d.replace ("-", "_") #CLIFF NOTE: Use this when manipulating string syntax for Selenium
+
+            varName = "_id_" + d.replace("-", "_") + "_locator"
+            byIdSyntax = "(By.ID, \""+ d + "\")"
+            gen.generateVariable(fh, varName, byIdSyntax)
+        
+
+
+        """
+        H1 Text
+           (a) HTML Syntax: <h1>CSCE 499 Capstone - 2012-2013</h1>
+           (b) BeautifulSoup Syntax: h1s = soup.findAll('h1')
+           (c) Variable Definition: _h1_CSCE_499_Capstone = "CSCE 499 Capstone - 2012-2013"
+           (d) Generated Selenium: The generated code should verify that the H1 text exists and matches
+               the expected text as defined by the specific H1 variable.
+        """
+        print "\nPARSE H1" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        h1s = soup.findAll('h1')    
+        for h1 in h1s:
+	    print h1
+
+        """
+        Image Files
+           (a) HTML Syntax: <img src="/home-assets/images/banner-images/honors.jpg" alt="" border="0">
+           (b) BeautifulSoup Syntax: imgs = soup.findAll('img')
+           (c) Variable Definition: _img_honors_locator = (By.SRC, "/home-assets/images/banner-images/honors
+           (d) Generated Selenium: The generat
+
+        """
+        print "\nPARSE IMG" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        imgs = soup.findAll('img')    
+        for img in imgs:
+	    print img
+
+        """
+        CLIFF NOTE: Re-investigate this one to see if it is really needed for testing
+        """
+        print "\nPARSE IFRAMES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        iframes = soup.findAll('iframe')    
+        for iframe in iframes:
+	    print iframe.extract()
+
+        """
+        Radio Buttons
+           (a) HTML Syntax: <input type="radio" name="group1" value="Cheese">
+           (b) BeautifulSoup Syntax: radios = soup.findAll('input','type':'radio')
+           (c) Variable Definition: _radio_cheese_locator = (By.Value, "Cheese")
+           (d) Generated Selenium: The generated code should verify that the radio button exists, is selectable
+               and simulates the "click" action in a basic sanity test.
+        """
+        print "\nPARSE RADIO BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        radios = soup.findAll('input',{'type':'radio'})
+        for radio in radios:
+	    print radio
+
+        """
+        Checkboxes
+           (a) HTML Syntax: <input type="checkbox" name="sports" value="football">
+           (b) BeautifulSoup Syntax: checkboxes = soup.findAll('input','type':'checkbox')
+           (c) Variable Definition: _checkbox_sports_locator = (By.Value, "football")
+           (d) Generated Selenium: The generated code should verify that the check box exists, is selectable
+               and simulates the "click" action in a basic sanity test.
+        """
+        print "\nPARSE CHECKBOX BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        checkboxes = soup.findAll('input',{'type':'checkbox'})
+        for checkbox in checkboxes:
+	    print checkbox
+
+        """
+        Text Fields
+           (a) HTML Syntax: <textarea name="comments" cols="25" rows="5">Enter your comments here...
+               </textarea>
+           (b) BeautifulSoup Syntax: textboxes = soup.findAll('input','type':'text')
+           (c) Variable Definition: _text_comments_locator = (By.Name, "comments")
+           (d) Generated Selenium: The generated code should verify that the text area exists, is accessible
+               by typing sample text and does not fail any SQL Injection negative test cases.
+        """
+        print "\nPARSE TEXT BOXES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: <input class="search-string swaptext" name="q" type="text" value="SEARCH PLU"/>
+        textboxes = soup.findAll('input',{'type':'text'})
+        for textbox in textboxes:
+
+            print textbox
+
+            text_id = textbox.get('id')
+            text_class = textbox.get('class')
+
+            if text_id != "" and text_class != "" :
+                print "HERE1"
+                out_str = ""
+                for tc in text_class:
+                    out_str += tc + "."
+                
+                if out_str[-1:] == '.':
+                    out_str = out_str[:-1]
+
+                #Print Class
+                print out_str
+                out_str2 = out_str.replace("-", "_")
+                out_str2 = out_str2.replace(".", "_")
+                varTextboxClass = "_textbox_class_" + out_str2 + "_locator"
+                byCssSelectorSyntax = "(By.CSS_Selector, \""+ out_str + "\")"
+                gen.generateVariable(fh, varTextboxClass, byCssSelectorSyntax)
+                fh.write("\n")
+                gen.generateFindElement(fh, varTextboxClass)
+
+            if text_id  != "" and text_class == "":
+                print text_id
+                varTextboxId = "_textbox_id_" + out_str.replace("-", "_") + "_locator"
+                byIdSyntax = "(By.ID, \""+ d + "\")"
+                gen.generateVariable(fh, varTextboxId, byIdSyntax)
+                fh.write("\n")
+                gen.generateFindElement(fh, varTextboxId)
+
+
+            if text_id == "" and text_class  != "":
+                out_str = ""
+                for tc in text_class:
+                    out_str += tc + "."
+                
+                if out_str[-1:] == '.':
+                    out_str = out_str[:-1]
+
+                #Print Class
+                print out_str
+                out_str2 = out_str.replace("-", "_")
+                out_str2 = out_str2.replace(".", "_")
+                varTextboxClass = "_textbox_class_" + out_str2 + "_locator"
+                byCssSelectorSyntax = "(By.CSS_Selector, \""+ out_str + "\")"
+                gen.generateVariable(fh, varTextboxClass, byCssSelectorSyntax)
+                fh.write("\n")                
+                gen.generateFindElement(fh, varTextboxClass)
+
+
+            #varName = "_id_" + d.replace("-", "_") + "_locator"
+            #byIdSyntax = "(By.ID, \""+ d + "\")"
+            #gen.generateVariable(fh, varName, byIdSyntax)
+           
+
+        """
+        Password Text Fields
+           (a) HTML Syntax: <input type="password" size="25">
+           (b) BeautifulSoup Syntax: passwords = soup.findAll('input','type':'password')
+           (c) Variable Definition: _text_password_locator = (By.Type, "password")
+           (d) Generated Selenium: The generated code should verify that the password text area exists, is
+               accessible by typing hidden characters and does not fail any negative test case scenarios (e.g., SQL
+               Injections and Security Tests).
+        """
+        print "\nPARSE TEXT BOXES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        passwords = soup.findAll('input',{'type':'password'})
+        for password in passwords:
+	    print password
+    
+        """
+        Buttons
+           (a) HTML Syntax: <input type="submit" value="Submit">
+           (b) BeautifulSoup Syntax: button = soup.findAll('input','type':'submit')
+           (c) Variable Definition: _button_submit_locator = (By.Type, "submit")
+           (d) Generated Selenium: The generated code should verify that the button exists, is able to be
+               clicked and functions correctly when selected.
+        """
+        print "\nPARSE BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        buttons = soup.findAll('input',{'type':'submit'})
+        for button in buttons:
+	    print button
+
+
+        """
+        Generate DIV Find Element Methods
+        """
+        fh.write("\n")
+
+        for div in divs:
+	    d = div['id']
+            print d 
+            print d.replace ("-", "_") #CLIFF NOTE: Use this when manipulating string syntax for Selenium
+
+            varName = "_id_" + d.replace("-", "_") + "_locator"
+            
+            methodName = "is" + varName + "_available"
+            testMethods.append(methodName)
+            gen.generateFindElement(fh, varName)
+
+        fh.close()
+       
+        print "TEST METHODS"
+        print testMethods
+        gen.generateTestElement(classname, testMethods)    
+
 
 def getLinks(url):
+
     page = Fetcher(url)
     page.fetch()
     for i, url in enumerate(page):
         print "%d. %s" % (i, url)
 
-def parse_options():
-    """parse_options() -> opts, args
 
+def parse_options():
+       
+    """
     Parse any command-line options given returning both
     the parsed options and arguments.
     """
@@ -270,33 +674,32 @@ def parse_options():
     parser = optparse.OptionParser(usage=USAGE, version=VERSION)
 
     parser.add_option("-q", "--quiet",
-            action="store_true", default=False, dest="quiet",
-            help="Enable quiet mode")
+                      action="store_true", default=False, dest="quiet",
+                      help="Enable quiet mode")
 
     parser.add_option("-l", "--links",
-            action="store_true", default=False, dest="links",
-            help="Get links for specified url only")    
+                      action="store_true", default=False, dest="links",
+                      help="Get links for specified url only")    
 
     parser.add_option("-d", "--depth",
-            action="store", type="int", default=30, dest="depth_limit",
-            help="Maximum depth to traverse")
+                      action="store", type="int", default=30, dest="depth_limit",
+                      help="Maximum depth to Crawl")
 
     parser.add_option("-c", "--confine",
-            action="store", type="string", dest="confine",
-            help="Confine crawl to specified prefix")
+                      action="store", type="string", dest="confine",
+                      help="Confine crawl to specified prefix")
 
     parser.add_option("-x", "--exclude", action="append", type="string",
                       dest="exclude", default=[], help="Exclude URLs by prefix")
-    
+   
     parser.add_option("-L", "--show-links", action="store_true", default=False,
                       dest="out_links", help="Output links found")
 
     parser.add_option("-u", "--show-urls", action="store_true", default=False,
                       dest="out_urls", help="Output URLs found")
-
-    parser.add_option("-D", "--dot", action="store_true", default=False,
-                      dest="out_dot", help="Output Graphviz dot file")
     
+    parser.add_option("-o", "--output", action="store", type="string", default="SeleniumAuto",
+                      dest="output", help="Output Directory to Generate To")
 
 
     opts, args = parser.parse_args()
@@ -307,54 +710,14 @@ def parse_options():
 
     if opts.out_links and opts.out_urls:
         parser.print_help(sys.stderr)
-        parser.error("options -L and -u are mutually exclusive")
+        parser.error("Mutually exclusive options: -L and -u")
 
     return opts, args
 
-class DotWriter:
-
-    """ Formats a collection of Link objects as a Graphviz (Dot)
-    graph.  Mostly, this means creating a node for each URL with a
-    name which Graphviz will accept, and declaring links between those
-    nodes."""
-
-    def __init__ (self):
-        self.node_alias = {}
-
-    def _safe_alias(self, url, silent=False):
-
-        """Translate URLs into unique strings guaranteed to be safe as
-        node names in the Graphviz language.  Currently, that's based
-        on the md5 digest, in hexadecimal."""
-
-        if url in self.node_alias:
-            return self.node_alias[url]
-        else:
-            m = hashlib.md5()
-            m.update(url)
-            name = "N"+m.hexdigest()
-            self.node_alias[url]=name
-            if not silent:
-                print "\t%s [label=\"%s\"];" % (name, url)                
-            return name
-
-
-    def asDot(self, links):
-
-        """ Render a collection of Link objects as a Dot graph"""
-        
-        print "digraph Crawl {"
-        print "\t edge [K=0.2, len=0.1];"
-        for l in links:            
-            print "\t" + self._safe_alias(l.src) + " -> " + self._safe_alias(l.dst) + ";"
-        print  "}"
-
-        
-    
 
 def main():    
-    opts, args = parse_options()
 
+    opts, args = parse_options()
     url = args[0]
 
     if opts.links:
@@ -367,6 +730,40 @@ def main():
 
     sTime = time.time()
 
+    global dest_dir # Output folder used throughout...
+    dest_dir = opts.output
+
+    gen = Generate()
+    gen.generateFramework()
+    
+    #Copy all prerequisite files
+    src1 = "conftest.py"
+    src2 = "credentials.yaml"
+    src3 = "mozwebqa.cfg"
+    src4 = "README.md"
+    src5 = "requirements.txt"
+    src6 = "page.py"
+    src7 = "__init__.py"
+   
+    gen.copyAnything("lib/" + src1, dest_dir + "/" + src1)
+    gen.copyAnything("lib/" + src2, dest_dir + "/" + src2)
+    gen.copyAnything("lib/" + src3, dest_dir + "/" + src3)
+    gen.copyAnything("lib/" + src4, dest_dir + "/" + src4)
+    gen.copyAnything("lib/" + src5, dest_dir + "/" + src5)
+
+    wc3 = "{{WILDCARD3}}"
+    mozwebqaInput = "lib/mozwebqa.cfg"
+    mozwebqaOutput = dest_dir + "/" + src3
+
+    fh1 = open(mozwebqaInput).read()
+    mozwebqa = fh1.replace(wc3, url)
+    fh2 = open(mozwebqaOutput, "w")
+    fh2.write(mozwebqa)
+    fh2.close()
+
+    gen.copyAnything("lib/" + src6, dest_dir + "/pages/" + src6)
+    gen.copyAnything("lib/" + src7, dest_dir + "/pages/" + src7)
+
     print >> sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_limit)
     crawler = Crawler(url, depth_limit, confine_prefix, exclude)
     crawler.crawl()
@@ -377,9 +774,9 @@ def main():
     if opts.out_links:
         print "\n".join([str(l) for l in crawler.links_remembered])
         
-    if opts.out_dot:
-        d = DotWriter()
-        d.asDot(crawler.links_remembered)
+    #if opts.out_dot:
+    #    d = DotWriter()
+    #    d.asDot(crawler.links_remembered)
 
     eTime = time.time()
     tTime = eTime - sTime
