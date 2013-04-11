@@ -16,6 +16,7 @@ from tempfile import mkstemp
 from shutil import move
 from os import remove, close
 
+from posixpath import basename, dirname
 
 from cgi import escape
 from traceback import format_exc
@@ -307,7 +308,8 @@ class Generate(object):
         os.mkdir(dir_framework + "/pages")
         os.mkdir(dir_framework + "/tests")
         os.mkdir(dir_framework + "/utils")
-           
+        os.mkdir(dir_framework + "/pages/auto")
+        os.mkdir(dir_framework + "/tests/auto")           
 
     def generateVariable(self, fh, var, define):
 
@@ -338,25 +340,33 @@ class Generate(object):
 
 #    """
 
-    def generateTestElement(self, classname, testMethods):
+    def generateTestElement(self, classname, filetext, testMethods):
 
-        filename = "test_" + classname + ".py"
-        outputFile = dest_dir + "/tests/" + filename
+        filename = "test_" + classname.lower() + ".py"
+        outputFile = dest_dir + "/tests/auto/" + filename
         fh = open(outputFile, "w")
 
         fh.write("#!/usr/bin/env python")
         fh.write("\n")
+
+        # Added to handle py.test error exception related to Python path
+        #fh.write("import sys, os\n")
+        #fh.write("myPath = os.path.dirname(os.path.abspath(__file__))\n")
+        #fh.write("sys.path.insert(0, myPath + '/usr/share/python/')\n")
+
         fh.write("import pytest\n")
         fh.write("from unittestzero import Assert\n")
-        fh.write("from pages." + classname.lower() + " import " + classname + "\n")
-        fh.write("\nclass HeaderMenu:\n")
-        fh.write("\n")
+        fh.write("from pages.auto." + classname.lower() + " import " + classname + "\n")
+        #fh.write("from pages." + filetext.lower() + " import " + classname + "\n")
 
-        lib_test_element_header = "lib/test_element_header.py"
-        defaultDef = open(lib_test_element_header).read()
-        fh.write(defaultDef + "\n")
+        #fh.write("\nclass HeaderMenu:\n")
+        #fh.write("\n")
 
-        fh.write("class " + classname + ":\n")
+        #lib_test_element_header = "lib/test_element_header.py"
+        #defaultDef = open(lib_test_element_header).read()
+        #fh.write(defaultDef + "\n")
+
+        fh.write("class Test" + classname + ":\n")
         
         #CLIFF NOTE: Add Page Title Test
 
@@ -409,11 +419,10 @@ class Scraper(object):
     def scrapePage(self, content, url):
         
         soup = BeautifulSoup(content)
-        
-        testMethods = []
 
         parse_object = urlparse.urlparse(url)
         filepath = parse_object.path[1:]
+
         filepath = filepath.replace ("/", "_")
         filepath = filepath.replace (".", "_")
         filepath = filepath.replace ("-", "_")
@@ -421,8 +430,34 @@ class Scraper(object):
 
         #Create Class Name
         classname = filepath.title()
+        scraper = Scraper()
+
+        #Do not create for NULL string
+        if classname != "":
+            pattern = re.compile(r'\d\@\?\=,') #Search for email address characters
+            if pattern.findall(classname):
+                print 'Found'
+            else:
+                print 'Not found'
+                scraper.scrapePageCont(content, url, classname, filepath)
+
+
+    def scrapePageCont(self, content, url, classname, filepath):
+
+        soup = BeautifulSoup(content)
+        testMethods = []
+
+
+        #Class name cannot start with digit.  
+        m = classname[0].isdigit()
+        if m:
+            classname = "c" + classname
+            filepath = "c" + filepath
+
+        filetext = classname
         classname = classname.replace ("_", "")
-        filename = dest_dir + "/pages/" + filepath + ".py" #Improve this later (no hard coding)...
+        filename = dest_dir + "/pages/auto/" + classname.lower() + ".py"
+        #filename = dest_dir + "/pages/" + filepath.lower() + ".py"
         
         #Create new page object file using file name Class Name
         fh = open(filename, "w")
@@ -554,7 +589,6 @@ class Scraper(object):
             text_class = textbox.get('class')
 
             if text_id != "" and text_class != "" :
-                print "HERE1"
                 out_str = ""
                 for tc in text_class:
                     out_str += tc + "."
@@ -564,6 +598,7 @@ class Scraper(object):
 
                 #Print Class
                 print out_str
+
                 out_str2 = out_str.replace("-", "_")
                 out_str2 = out_str2.replace(".", "_")
                 varTextboxClass = "_textbox_class_" + out_str2 + "_locator"
@@ -633,6 +668,20 @@ class Scraper(object):
 	    print button
 
 
+        #Extract base name for url
+        o = urlparse.urlparse(url)
+        bname = basename(o.path)
+        print"\nBASE NAME = " + bname
+
+        #Creates a new instance of the class and gets the page ready for testing
+        wc4 = "{{WILDCARD4}}"
+        page_init = "lib/page_init.py"
+        ph = open(page_init).read()
+        initialize = ph.replace(wc4, bname)
+        fh.write("\n\n" + initialize)
+        ph.close()
+
+
         """
         Generate DIV Find Element Methods
         """
@@ -653,7 +702,8 @@ class Scraper(object):
        
         print "TEST METHODS"
         print testMethods
-        gen.generateTestElement(classname, testMethods)    
+        if classname != "":
+            gen.generateTestElement(classname, filetext, testMethods)    
 
 
 def getLinks(url):
@@ -730,7 +780,7 @@ def main():
 
     sTime = time.time()
 
-    global dest_dir
+    global dest_dir # Output folder used throughout...
     dest_dir = opts.output
 
     gen = Generate()
@@ -744,7 +794,8 @@ def main():
     src5 = "requirements.txt"
     src6 = "page.py"
     src7 = "__init__.py"
-   
+    src8 = "base.py"
+
     gen.copyAnything("lib/" + src1, dest_dir + "/" + src1)
     gen.copyAnything("lib/" + src2, dest_dir + "/" + src2)
     gen.copyAnything("lib/" + src3, dest_dir + "/" + src3)
@@ -763,6 +814,11 @@ def main():
 
     gen.copyAnything("lib/" + src6, dest_dir + "/pages/" + src6)
     gen.copyAnything("lib/" + src7, dest_dir + "/pages/" + src7)
+
+    gen.copyAnything("lib/" + src7, dest_dir + "/tests/" + src7)
+    gen.copyAnything("lib/" + src7, dest_dir + "/tests/auto/" + src7)
+    gen.copyAnything("lib/" + src8, dest_dir + "/pages/auto/" + src8)
+    gen.copyAnything("lib/" + src7, dest_dir + "/pages/auto/" + src7)
 
     print >> sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_limit)
     crawler = Crawler(url, depth_limit, confine_prefix, exclude)

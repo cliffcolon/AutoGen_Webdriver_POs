@@ -213,8 +213,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'automation', u'Automation Documentation',
-     [u'Cliff Colon'], 1)
+    ('index', 'sptautomation', u'SPT Automation Documentation',
+     [u'Cliff Colon, Gregg Lamb, Zain Naqvi'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'Automation', u'Automation Documentation',
-   u'Cliff Colon', 'Automation', 'One line description of project.',
+  ('index', 'SPTAutomation', u'SPT Automation Documentation',
+   u'Cliff Colon, Gregg Lamb, Zain Naqvi', 'SPTAutomation', 'One line description of project.',
    'Miscellaneous'),
 ]
 
