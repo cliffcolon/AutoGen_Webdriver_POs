@@ -11,6 +11,8 @@ import optparse
 import hashlib
 import fileinput
 import shutil, errno
+import datetime
+import logging
 
 from tempfile import mkstemp
 from shutil import move
@@ -36,6 +38,11 @@ AGENT = "%s/%s" % (__name__, __version__)
 class Link (object):
 
     def __init__(self, src, dst, link_type):
+
+        """
+        Constructor
+        """
+
         self.src = src
         self.dst = dst
         self.link_type = link_type
@@ -66,6 +73,11 @@ class Crawler(object):
     """
 
     def __init__(self, root, depth_limit, confine=None, exclude=[], locked=True, filter_seen=True):
+
+        """
+        Constructor
+        """
+
         self.root = root
         self.host = urlparse.urlparse(root)[1]
 
@@ -98,37 +110,48 @@ class Crawler(object):
             self.out_url_filters=[]
 
     def _pre_visit_url_condense(self, url):
-        
-        """All this does is strip the \"fragment\" component from URLs,
-        so that http://plu.edu/csce499.html\#csce499 becomes
-        http://plu.edu/csce499.html """
 
+        """
+        Strips the fragment component from URL's
+        """
         base, frag = urlparse.urldefrag(url)
         return base
 
     """
-    ## URL Filtering functions: 
-    ## These all use information from the state of the Crawler to evaluate 
-    ## whether a given URL should be used in some context.  Return value 
-    ## of True indicates that the URL should be used.
+    URL Filtering functions: 
+    These all use information from the state of the Crawler to evaluate 
+    whether a given URL should be used in some context.  Return value 
+    of True indicates that the URL should be used.
     """
     
     def _prefix_ok(self, url):
-        """Pass if the URL has the correct prefix, or none is specified"""
+        """
+        Pass if the URL has the correct prefix, or none is specified
+        """
+        logging.debug('Verify tht URL has correct prefix')
         return (self.confine_prefix is None  or
                 url.startswith(self.confine_prefix))
 
     def _exclude_ok(self, url):
-        """Pass if the URL does not match any exclude patterns"""
+        """
+        Pass if the URL does not match any exclude patterns
+        """
+        logging.debug('URL does not match any exclude patterns')
         prefixes_ok = [ not url.startswith(p) for p in self.exclude_prefixes]
         return all(prefixes_ok)
     
     def _not_visited(self, url):
-        """Pass if the URL has not already been visited"""
+        """
+        Pass if the URL has not already been visited
+        """
+        logging.debug('URL has not been visited')
         return (url not in self.visited_links)
     
     def _same_host(self, url):
-        """Pass if the URL is on the same host as the root URL"""
+        """
+        Pass if the URL is on the same host as the base URL
+        """
+        logging.debug('URL is on the same host as the base URL')
         try:
             host = urlparse.urlparse(url)[1]
             return re.match(".*%s" % self.host, host) 
@@ -173,8 +196,11 @@ class Crawler(object):
                 try:
                     self.visited_links.add(this_url)
                     self.num_followed += 1
+
+                    logging.debug('Fetching URL:' + this_url)
                     page = Fetcher(this_url)
                     page.fetch()
+
                     for link_url in [self._pre_visit_url_condense(l) for l in page.out_links()]:
                         if link_url not in self.urls_seen:
                             q.put((link_url, depth+1))
@@ -189,7 +215,6 @@ class Crawler(object):
                                     self.links_remembered.add(link)
                 except Exception, e:
                     print >>sys.stderr, "ERROR: Can't process URL '%s' (%s)" % (this_url, e)
-                    #print format_exc()
 
 class OpaqueDataTypeException (Exception):
     
@@ -237,6 +262,11 @@ class Fetcher(object):
         return (request, handle)
 
     def fetch(self):
+
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
+
         request, handle = self._open()
         self._addHeaders(request)
         if handle:
@@ -254,8 +284,10 @@ class Fetcher(object):
             except urllib2.HTTPError, error:
                 if error.code == 404:
                     print >> sys.stderr, "ERROR: %s -> %s" % (error, error.url)
+                    logging.error('Error Code = 404')
                 else:
                     print >> sys.stderr, "ERROR: %s" % error
+                    logging.error('HTTP Error found')
                 tags = []
             except urllib2.URLError, error:
                 print >> sys.stderr, "ERROR: %s" % error
@@ -271,11 +303,12 @@ class Fetcher(object):
                     if url not in self:
                         if url[-1:] != '/':
                             #Omit URL's that are email or other none pages
-                            r = re.compile('[()@]')
+                            r = re.compile('[()@]') 
                             if not r.search(url):
                                 self.out_urls.append(url)
+                                
                     print url
-
+                    logging.info(url)
                     scraper = Scraper()
                     scraper.scrapePage(content, url) #Scrape page for specific HTML elements
 
@@ -283,10 +316,20 @@ class Fetcher(object):
 
 class Generate(object):
 
+    """
+    CLIFF NOTE: ADD FUNCTION COMMENT HERE
+    """
+
     def __init__(self):
+        """
+        Constructor
+        """
         self
 
     def copyAnything(self, src, dst):
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
         try:
             shutil.copytree(src, dst)
         except OSError as exc: # python >2.5
@@ -296,12 +339,16 @@ class Generate(object):
 
     def generateFramework(self):
 
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
         dir_framework = dest_dir
         
         #Erase previous generation
         if os.path.isdir(dir_framework):
             shutil.rmtree(dir_framework)
 
+        logging.debug('Create subdirectories for new framework')
         os.mkdir(dir_framework)
         os.mkdir(dir_framework + "/browserid")
         os.mkdir(dir_framework + "/docs")
@@ -313,6 +360,10 @@ class Generate(object):
 
     def generateVariable(self, fh, var, define):
 
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
+        logging.debug('Generate variable definition:' + var)
         if var is '_page_title': 
            fh.write("\n    " + var + " = \"" + define + "\"")
         else:
@@ -321,6 +372,10 @@ class Generate(object):
 
     def generateFindElement(self, fh, var):
 
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
+        logging.debug('Generate FindElement:' + var)
         wc1 = "{{WILDCARD1}}"
         wc2 = "{{WILDCARD2}}"
 
@@ -342,6 +397,11 @@ class Generate(object):
 
     def generateTestElement(self, classname, filetext, testMethods):
 
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
+        now = datetime.datetime.now()
+        logging.debug('Generating ' + classname + ' test script.')
         filename = "test_" + classname.lower() + ".py"
         outputFile = dest_dir + "/tests/auto/" + filename
         fh = open(outputFile, "w")
@@ -349,35 +409,31 @@ class Generate(object):
         fh.write("#!/usr/bin/env python")
         fh.write("\n")
 
-        # Added to handle py.test error exception related to Python path
-        #fh.write("import sys, os\n")
-        #fh.write("myPath = os.path.dirname(os.path.abspath(__file__))\n")
-        #fh.write("sys.path.insert(0, myPath + '/usr/share/python/')\n")
+        fh.write("\"\"\"")
+        fh.write("Created on " + now.strftime("%Y-%m-%d %H:%M"))
+        fh.write("@author: Selenium Webdriver Code Generator")
+        fh.write("\"\"\"\n")
 
         fh.write("import pytest\n")
         fh.write("from unittestzero import Assert\n")
         fh.write("from pages.auto." + classname.lower() + " import " + classname + "\n")
-        #fh.write("from pages." + filetext.lower() + " import " + classname + "\n")
-
-        #fh.write("\nclass HeaderMenu:\n")
-        #fh.write("\n")
-
-        #lib_test_element_header = "lib/test_element_header.py"
-        #defaultDef = open(lib_test_element_header).read()
-        #fh.write(defaultDef + "\n")
 
         fh.write("class Test" + classname + ":\n")
         
         #CLIFF NOTE: Add Page Title Test
 
+        #Create PyTest Test Case for all defined tests
         for test in testMethods:
+            logging.debug('Generating test case: test_' + test)
             fh.write("\n    @pytest.mark.nondestructive\n")
             fh.write("    def test_" + test + "(self, mozwebqa):\n")
             fh.write("\n")
+            fh.write("        \"\"\"")
+            fh.write("        Test pages elements defined in " + classname + "page object: " + classname.lower() + ".py") 
+            fh.write("        \"\"\"")
             fh.write("        page = " + classname + "(mozwebqa)\n")
             fh.write("        Assert.true(page." + test + ")\n")
             
-        #GOTIME
         return
 
 
@@ -401,13 +457,20 @@ class Scraper(object):
     """
 
     def __init__(self):
+
+        """
+        Constructor
+        """
         self
 
-    """
-    Method used to remote HTML tags. 
-    Call using the following example syntax: removeTags(testhtml, 'b', 'p')
-    """
+
     def removeTags(html, *tags):
+
+        """
+        Method used to remote HTML tags. 
+        Call using the following example syntax: removeTags(testhtml, 'b', 'p')
+        """
+        logging.debug('Remove remote HTML tags')
         soup = BeautifulSoup(html)
         for tag in tags:
             for tag in soup.findAll(tag):
@@ -417,7 +480,10 @@ class Scraper(object):
 
 
     def scrapePage(self, content, url):
-        
+
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
         soup = BeautifulSoup(content)
 
         parse_object = urlparse.urlparse(url)
@@ -430,45 +496,63 @@ class Scraper(object):
 
         #Create Class Name
         classname = filepath.title()
+        logging.debug('Create class name ' + classname)
         scraper = Scraper()
 
         #Do not create for NULL string
         if classname != "":
             pattern = re.compile(r'\d\@\?\=,') #Search for email address characters
             if pattern.findall(classname):
-                print 'Found'
+                logging.debug(classname + 'Found')
             else:
-                print 'Not found'
+                logging.debug(classname + 'Not Found')
                 scraper.scrapePageCont(content, url, classname, filepath)
 
 
     def scrapePageCont(self, content, url, classname, filepath):
 
+        """
+        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        """
+        logging.debug('Scraping page')
         soup = BeautifulSoup(content)
+        now = datetime.datetime.now()
         testMethods = []
-
 
         #Class name cannot start with digit.  
         m = classname[0].isdigit()
         if m:
+            logging.debug('Class name cannot start with a digit')
             classname = "c" + classname
             filepath = "c" + filepath
 
+        #Define variable for page object file name
         filetext = classname
         classname = classname.replace ("_", "")
         filename = dest_dir + "/pages/auto/" + classname.lower() + ".py"
-        #filename = dest_dir + "/pages/" + filepath.lower() + ".py"
         
         #Create new page object file using file name Class Name
         fh = open(filename, "w")
-        print"\nURL - " + filepath
-        print"\nFILEPATH - " + classname 
-        fh.write("#!/usr/bin/env python")
+        logging.debug('URL: ' + filepath)
+        logging.debug('FILENAME: ' + classname)        
+        fh.write("#!/usr/bin/env python\n")
+
+        #Write comment for creation date and author
+        fh.write("\"\"\"")
+        fh.write("Created on " + now.strftime("%Y-%m-%d %H:%M"))
+        fh.write("@author: Selenium Webdriver Code Generator")
+        fh.write("\"\"\"\n")
+
+        #Create page object header code by manipulating library code
         ph = open("lib/page_header.py", "r")
         fh.write("\n\n" + ph.read())
         ph.close()
         fh.write("\n\nclass " + classname + "(Base):\n") 
         
+        #Write main comment for class
+        fh.write("        \"\"\"")
+        fh.write("        Variable definitions of  " + classname + " page object based on site HTML elements.") 
+        fh.write("        \"\"\"")
 
         """
         Parse Title:
@@ -479,12 +563,12 @@ class Scraper(object):
                pected text as defined by the title variable.
 
         """
-        print "\nPARSE PAGE TITLE"
+        logging.debug('Parse page title')
         fh.write("\n\n    # Page Title Variable")
         title = soup.head.title.string 
         gen = Generate()
         gen.generateVariable(fh, "_page_title", title)
-        print title
+        logging.debug('Title: ' + title)
 
         """
         All DIV with ID tag
@@ -493,22 +577,18 @@ class Scraper(object):
            (c) Variable Definition: _div_banner_top_locator = (By.ID, "banner-top")
            (d) Generated Selenium: The generated code should verify that the DIV ID exists on the page.
         """
-        print "\nPARSE ALL DIVS WITH IDS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
-
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse all DIVS with ids')
         fh.write("\n\n    # Variables defined by ID element")
         divs = soup.findAll('div',{'id':True})    
         for div in divs:
-            #print div
 	    d = div['id']
-            print d 
-            print d.replace ("-", "_") #CLIFF NOTE: Use this when manipulating string syntax for Selenium
+            logging.debug(d)
 
             varName = "_id_" + d.replace("-", "_") + "_locator"
             byIdSyntax = "(By.ID, \""+ d + "\")"
             gen.generateVariable(fh, varName, byIdSyntax)
         
-
-
         """
         H1 Text
            (a) HTML Syntax: <h1>CSCE 499 Capstone - 2012-2013</h1>
@@ -517,10 +597,11 @@ class Scraper(object):
            (d) Generated Selenium: The generated code should verify that the H1 text exists and matches
                the expected text as defined by the specific H1 variable.
         """
-        print "\nPARSE H1" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse H1')
         h1s = soup.findAll('h1')    
         for h1 in h1s:
-	    print h1
+	    logging.debug(h1)
 
         """
         Image Files
@@ -530,18 +611,18 @@ class Scraper(object):
            (d) Generated Selenium: The generat
 
         """
-        print "\nPARSE IMG" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse Image')
         imgs = soup.findAll('img')    
         for img in imgs:
-	    print img
-
+            logging.debug(img)
         """
         CLIFF NOTE: Re-investigate this one to see if it is really needed for testing
         """
-        print "\nPARSE IFRAMES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse iFrames')
         iframes = soup.findAll('iframe')    
         for iframe in iframes:
-	    print iframe.extract()
+            logging.debug(iframe)
 
         """
         Radio Buttons
@@ -551,10 +632,11 @@ class Scraper(object):
            (d) Generated Selenium: The generated code should verify that the radio button exists, is selectable
                and simulates the "click" action in a basic sanity test.
         """
-        print "\nPARSE RADIO BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse Radio Buttons')
         radios = soup.findAll('input',{'type':'radio'})
         for radio in radios:
-	    print radio
+            logging.debug(radio)
 
         """
         Checkboxes
@@ -564,10 +646,11 @@ class Scraper(object):
            (d) Generated Selenium: The generated code should verify that the check box exists, is selectable
                and simulates the "click" action in a basic sanity test.
         """
-        print "\nPARSE CHECKBOX BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse Checkbox Buttons')
         checkboxes = soup.findAll('input',{'type':'checkbox'})
         for checkbox in checkboxes:
-	    print checkbox
+            logging.debug(checkbox)
 
         """
         Text Fields
@@ -578,13 +661,12 @@ class Scraper(object):
            (d) Generated Selenium: The generated code should verify that the text area exists, is accessible
                by typing sample text and does not fail any SQL Injection negative test cases.
         """
-        print "\nPARSE TEXT BOXES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
-        #CLIFF NOTE: <input class="search-string swaptext" name="q" type="text" value="SEARCH PLU"/>
+
+        logging.debug('Parse Text Boxes')
         textboxes = soup.findAll('input',{'type':'text'})
         for textbox in textboxes:
 
-            print textbox
-
+            logging.debug(textbox)
             text_id = textbox.get('id')
             text_class = textbox.get('class')
 
@@ -597,7 +679,7 @@ class Scraper(object):
                     out_str = out_str[:-1]
 
                 #Print Class
-                print out_str
+                logging.debug(out_str)
 
                 out_str2 = out_str.replace("-", "_")
                 out_str2 = out_str2.replace(".", "_")
@@ -608,7 +690,7 @@ class Scraper(object):
                 gen.generateFindElement(fh, varTextboxClass)
 
             if text_id  != "" and text_class == "":
-                print text_id
+                logging.debug(text_id)
                 varTextboxId = "_textbox_id_" + out_str.replace("-", "_") + "_locator"
                 byIdSyntax = "(By.ID, \""+ d + "\")"
                 gen.generateVariable(fh, varTextboxId, byIdSyntax)
@@ -625,7 +707,8 @@ class Scraper(object):
                     out_str = out_str[:-1]
 
                 #Print Class
-                print out_str
+                logging.debug(out_str)
+        
                 out_str2 = out_str.replace("-", "_")
                 out_str2 = out_str2.replace(".", "_")
                 varTextboxClass = "_textbox_class_" + out_str2 + "_locator"
@@ -633,13 +716,7 @@ class Scraper(object):
                 gen.generateVariable(fh, varTextboxClass, byCssSelectorSyntax)
                 fh.write("\n")                
                 gen.generateFindElement(fh, varTextboxClass)
-
-
-            #varName = "_id_" + d.replace("-", "_") + "_locator"
-            #byIdSyntax = "(By.ID, \""+ d + "\")"
-            #gen.generateVariable(fh, varName, byIdSyntax)
-           
-
+   
         """
         Password Text Fields
            (a) HTML Syntax: <input type="password" size="25">
@@ -649,10 +726,11 @@ class Scraper(object):
                accessible by typing hidden characters and does not fail any negative test case scenarios (e.g., SQL
                Injections and Security Tests).
         """
-        print "\nPARSE TEXT BOXES" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse Text Box')
         passwords = soup.findAll('input',{'type':'password'})
         for password in passwords:
-	    print password
+            logging.debug(password)
     
         """
         Buttons
@@ -662,16 +740,16 @@ class Scraper(object):
            (d) Generated Selenium: The generated code should verify that the button exists, is able to be
                clicked and functions correctly when selected.
         """
-        print "\nPARSE BUTTONS" #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        logging.debug('Parse Buttons')
         buttons = soup.findAll('input',{'type':'submit'})
         for button in buttons:
-	    print button
-
+            logging.debug(button)
 
         #Extract base name for url
         o = urlparse.urlparse(url)
         bname = basename(o.path)
-        print"\nBASE NAME = " + bname
+        logging.debug('Base Name: ' + bname)
 
         #Creates a new instance of the class and gets the page ready for testing
         wc4 = "{{WILDCARD4}}"
@@ -679,8 +757,6 @@ class Scraper(object):
         ph = open(page_init).read()
         initialize = ph.replace(wc4, bname)
         fh.write("\n\n" + initialize)
-        ph.close()
-
 
         """
         Generate DIV Find Element Methods
@@ -689,25 +765,25 @@ class Scraper(object):
 
         for div in divs:
 	    d = div['id']
-            print d 
-            print d.replace ("-", "_") #CLIFF NOTE: Use this when manipulating string syntax for Selenium
-
+            logging.debug(d)
             varName = "_id_" + d.replace("-", "_") + "_locator"
-            
             methodName = "is" + varName + "_available"
             testMethods.append(methodName)
             gen.generateFindElement(fh, varName)
 
+
         fh.close()
-       
-        print "TEST METHODS"
-        print testMethods
+
         if classname != "":
             gen.generateTestElement(classname, filetext, testMethods)    
 
 
 def getLinks(url):
 
+    """
+    CLIFF NOTE: ADD FUNCTION COMMENT HERE
+    """
+    logging.debug('Get Links')
     page = Fetcher(url)
     page.fetch()
     for i, url in enumerate(page):
@@ -767,6 +843,16 @@ def parse_options():
 
 def main():    
 
+    """
+    CLIFF NOTE: ADD FUNCTION COMMENT HERE
+    """
+
+    LOG_FILENAME = 'example.log'
+
+    logging.basicConfig(filename=LOG_FILENAME,filemode='w',level=logging.DEBUG)
+    logging.info('Starting auto-generator')
+    logging.debug('Initialing variables')
+
     opts, args = parse_options()
     url = args[0]
 
@@ -783,10 +869,13 @@ def main():
     global dest_dir # Output folder used throughout...
     dest_dir = opts.output
 
+    logging.debug('Initializing new framework')
+
     gen = Generate()
     gen.generateFramework()
     
     #Copy all prerequisite files
+    logging.debug('Coping all prerequisite files to new framework')
     src1 = "conftest.py"
     src2 = "credentials.yaml"
     src3 = "mozwebqa.cfg"
@@ -802,6 +891,7 @@ def main():
     gen.copyAnything("lib/" + src4, dest_dir + "/" + src4)
     gen.copyAnything("lib/" + src5, dest_dir + "/" + src5)
 
+    logging.debug('Configuring MOZWEBQA.CFG')
     wc3 = "{{WILDCARD3}}"
     mozwebqaInput = "lib/mozwebqa.cfg"
     mozwebqaOutput = dest_dir + "/" + src3
@@ -821,6 +911,7 @@ def main():
     gen.copyAnything("lib/" + src7, dest_dir + "/pages/auto/" + src7)
 
     print >> sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_limit)
+    logging.debug('Begin crawling URL based on prerequisite filters')
     crawler = Crawler(url, depth_limit, confine_prefix, exclude)
     crawler.crawl()
 
@@ -829,10 +920,7 @@ def main():
 
     if opts.out_links:
         print "\n".join([str(l) for l in crawler.links_remembered])
-        
-    #if opts.out_dot:
-    #    d = DotWriter()
-    #    d.asDot(crawler.links_remembered)
+      
 
     eTime = time.time()
     tTime = eTime - sTime

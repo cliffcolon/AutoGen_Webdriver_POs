@@ -1,14 +1,5 @@
 #!/usr/bin/env python
 
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
-# Change for a pull request test
-
-'''
-Created on Jun 21, 2010
-
-'''
 from unittestzero import Assert
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
