@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Requirements Presentation</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__requirementsphase_i_presentation">CSCE 499 - Requirements/Phase I Presentation</h1>
+
+<p>Each project will give a 15-20 minute presentation on either Tuesday or Thursday.<br />It is called a “Requirements” presentation for the BS implementation projects and it is a Phase I presentation for the BA research paper projects.</p>
+
+<p>Here are some guidelines/requirements for the presentation:</p>
+
+<ul>
+<li>
+<p>Use visual aids including slides. Your slides can be developed using any of several tools: Powerpoint, Keynote, HTML, PDF, LaTeX (see the Beamer package), …</p>
+</li>
+
+<li>
+<p>Do not go into excessive detail. There isn’t enough time.</p>
+</li>
+
+<li>
+<p>Each team member should participate.</p>
+</li>
+
+<li>
+<p>Do not use small fonts or a large amount of text on any slide. In general, pictures are almost always better than text.</p>
+</li>
+
+<li>
+<p>An example is always a good way to illustrate a technical issue.</p>
+</li>
+</ul>
+
+<h3 id="organization_of_your_presentation">Organization of your presentation</h3>
+
+<p><strong>BS Presentations</strong></p>
+
+<ul>
+<li>
+<p><strong>Title</strong>: Your first slide should be similar to the title page of your documents: Title, Authors, Degrees, Advisor, and Date.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: What is the product going to do? Just a general outline here, details follow.</p>
+</li>
+
+<li>
+<p><strong>Requirements</strong>: Cover briefly your requirements including design constraints, performance, assumptions, security, reliability, portability, maintainability, and external interface. Highlight only one or two use cases.</p>
+</li>
+
+<li>
+<p><strong>Issues</strong>: What problems do you expect to encounter? How can you prepare for them?</p>
+</li>
+
+<li>
+<p><strong>Closing</strong>: Summarize what you’ve said and ask for questions.</p>
+</li>
+</ul>
+
+<p>This is a technical talk so focus on the technical aspects of your project. At this stage in your project you will likely not have any significant code of your own development. Instead, you are giving the audience a picture of what your product will do and how it will interact with the user. Include detailed description of your software’s external interface. This includes both UI and other components. For example, a database project could talk about SQL, a project that is going to use wireless communications could talk about wireless protocols and the API they intend to use, etc.</p>
+
+<p><strong>BA Presentations</strong></p>
+
+<ul>
+<li>
+<p><strong>Title</strong>: Your first slide should be like the title page of your documents: Title, Authors, Degrees, Advisor, and Date.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: What is the context or subject area of your research? Why is it important and why is it relevant to computing professionals?</p>
+</li>
+
+<li>
+<p>Give a technical introduction to the problem/protocols/etc. This will vary a lot depending on your topic.</p>
+</li>
+
+<li>
+<p>Give a detailed analysis of at least one sub-topic or part or your research.</p>
+</li>
+
+<li>
+<p><strong>Closing</strong>: Summarize what you’ve said and ask for questions.</p>
+</li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="953"></canvas></html>

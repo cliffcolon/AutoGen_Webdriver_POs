@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Design Presentation</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__designtechnical_presentation">CSCE 499 - Design/Technical Presentation</h1>
+
+<p>Each project will give a 20 minute presentation on either Tuesday or Thursday of dead week. It is called a “Design” presentation for the BS implementation projects and it is a Technical presentation for the BA research paper projects.</p>
+
+<p>Here are some guidelines/requirements for the presentation:</p>
+
+<ul>
+<li>
+<p>You must use visual aids including slides.</p>
+</li>
+
+<li>
+<p>Do not go into excessive detail.</p>
+</li>
+
+<li>
+<p>Do not use small fonts or a large amount of text on any slide.</p>
+</li>
+
+<li>
+<p>An example is always a good way to illustrate a technical issue. A small program that shows the essentials of an API for example.</p>
+</li>
+</ul>
+
+<h3 id="organization_of_your_presentation">Organization of your presentation</h3>
+
+<p><strong>BS Presentations</strong></p>
+
+<ul>
+<li>
+<p><strong>Title</strong>: Your first slide should be like the title page of your documents: Title, Authors, Degrees, Advisor, and Date.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: What is the project going to do? Here a demonstration or animation or other such example will go a long way.</p>
+</li>
+
+<li>
+<p><strong>Requirements</strong>: List the main functional requirements and any limitations you are placing on your design.</p>
+</li>
+
+<li>
+<p><strong>Design</strong>: What are the main components of your project and how will they fit together? Component Design: Describe the internals of the components you are going to build. Go into detail on only two or three of these.</p>
+</li>
+
+<li>
+<p><strong>Issues</strong>: What problems have you encountered so far? How have they been dealt with?</p>
+</li>
+
+<li>
+<p><strong>Closing</strong>: Summarize what you’ve said and ask for questions.</p>
+</li>
+</ul>
+
+<p>This is a technical talk so focus on the technical aspects of your project. At this stage in your project you may not have any significant technical material of your own development but you can still talk about the technical aspects of the design of your product. For example, a web/database project should discuss the design of the server code and/or client code including SQL queries, a project using wireless communication should talk about the design of the application level protocol as well as the code design.</p>
+
+<p><strong>BA Presentations</strong></p>
+
+<ul>
+<li>
+<p><strong>Title</strong>: Your first slide should be like the title page of your documents: Title, Authors, Degrees, Advisor, and Date.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: What is the context or subject area of your research.<br />Why is it important and why is it relevant to computing professionals.</p>
+</li>
+
+<li>
+<p>Give a technical introduction to the problem/protocols/etc. This will vary a lot depending on your topic.</p>
+</li>
+
+<li>
+<p>Give a detailed analysis of at least one sub-topic or part or your research.</p>
+</li>
+
+<li>
+<p><strong>Closing</strong>: Summarize what you’ve said and ask for questions. Think about what you need to say. You do not need to nor should you discuss all aspects of your project. Focus on the two or three most essential and interesting parts.</p>
+</li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="969"></canvas></html>

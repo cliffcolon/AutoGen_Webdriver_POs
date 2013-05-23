@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - BS Final Document</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__bs_final_document">CSCE 499 - BS Final Document</h1>
+
+<p>The final document should be a complete examination of your project from proposal through design and implementation to the final result.</p>
+
+<p>The document should look professional with a title page, page numbers, table of contents, lists of figures and tables, and references (an index is optional). The text should be well written with no spelling or grammar errors. Please also see the <a href="doc-standards.html">CSCE 499 Document Standards</a>.</p>
+
+<p>Below is a suggested outline for the contents of the report. You may present this information in an equivalent way if you think that is better for you.</p>
+
+<ul>
+<li>
+<p><strong>Title Page</strong></p>
+</li>
+
+<li>
+<p><strong>Abstract</strong>: A brief, one-paragraph description of the entire project and results. This should give the reader a good idea of what the project is, and how it turned out. This should be on a page by itself.</p>
+</li>
+
+<li>
+<p><strong>Table of Contents</strong></p>
+</li>
+
+<li>
+<p><strong>List of figures</strong>: All figures must be numbered and captioned.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: Give an overview of the project including functional and learning objectives.</p>
+</li>
+
+<li>
+<p><strong>Requirements</strong>: Give the specific functional, platform, etc. requirements for your project. Here is the place to give Use Cases and Scenarios (not all projects will need these).</p>
+</li>
+
+<li>
+<p><strong>Design</strong>: This should be a very large section, consisting of the majority of the report, and it should refelect the final design of your project. Be sure to discuss design changes that you made and give the issues and reasons behind the changes. This section should have a number of sub-sections that include various specifications. It should be systematically organized and documented. The contents will vary depending on the project and whether it is hardware or software or both. Some examples of things that you could include follow:</p>
+
+<p>Software:</p>
+
+<ul>
+<li>UML Class diagram</li>
+
+<li>Sequence and/or object diagrams showing “realization” of some of the use cases.</li>
+
+<li>Data design diagrams such as entity relationship diagram</li>
+
+<li>Schema descriptions including SQL</li>
+
+<li>SQL query design</li>
+
+<li>Detailed use cases</li>
+
+<li>Testing plans</li>
+
+<li>User interface designs</li>
+
+<li>Etc.</li>
+</ul>
+
+<p>Hardware:</p>
+
+<ul>
+<li>Theory of hardware operation</li>
+
+<li>Block diagram of system and modules</li>
+
+<li>Explanation of functional modules</li>
+
+<li>Timing diagrams</li>
+
+<li>Simulations</li>
+
+<li>Construction “blueprints”</li>
+
+<li>Etc.</li>
+</ul>
+
+<p>Almost everyone will have a need for a number of these design tools. You should utilize as many as are appropriate for your project. The goal is that your project should be specified well enough that at this point, that you could hand this document over to a person with reasonable technical skills, and he/she could complete your project for you. Contact your faculty mentor if you have questions about what might be appropriate.</p>
+</li>
+
+<li>
+<p><strong>Implementation</strong>: Describe the implementation of your project. This section may be small, but be sure to include and discuss the process involved. Discuss the answers to questions such as: How did your team communicate? How often did you meet? What software development process did you use? Did you utilize version control software? What were the main issues and how were they resolved?</p>
+</li>
+
+<li>
+<p><strong>Future Work</strong>: Describe what requirements you did not get to or fully implement and why. Describe what you would do were you starting over on the project. Describe possible additions to the project to make it better.</p>
+</li>
+
+<li>
+<p><strong>References</strong>: A formal bibliography that is numbered and cited directly from the text. Follow the styles that are commonly found in ACM or IEEE journals.</p>
+</li>
+
+<li>
+<p><strong>Glossary</strong>: Provide a complete glossary of all important technical terms.</p>
+</li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="1182"></canvas></html>

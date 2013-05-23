@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Research Paper, Phase 1</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__research_paper_phase_1">CSCE 499 - Research Paper, Phase 1</h1>
+
+<p>The purpose of this document is to outline the major topics you will cover in your research paper. You also should say what you hope to accomplish with your paper. That is, what kind of a message are you trying to communicate to your readers? Often your message is simply one of informing them about an important computing technology.</p>
+
+<p>Your document should be 3-9 pages (not including title page or bibliography), and follow the <a href="doc-standards.html">CSCE 499 document standards</a>.</p>
+
+<p>At a minimum, your document must include the following sections:</p>
+
+<ul>
+<li>
+<p><strong>Introduction</strong>: Describe the topic area and its importance in computing and society.</p>
+</li>
+
+<li>
+<p><strong>Project Description</strong>: Describe here what message you hope to send to readers of the paper. You are, of course, researching a new or existing important technology in computing. What do you intend to write about it? You have to at least describe it and give technical details of its design and implementation. From there you may wish to point out technical flaws or weaknesses, describe implementation issues, mention industry support, or several other things. In addition you may wish to include a tutorial on the actual use of the technology.</p>
+</li>
+
+<li>
+<p><strong>Task Breakdown</strong>: Outline the paper’s sections and subsections with a discussion in each part of what will be written there. This will be your best estimate based on very little knowledge at this point.</p>
+</li>
+
+<li>
+<p><strong>Preliminary Timetable</strong>: This must be a weekly schedule that includes all of the tasks outlined in the above section. Your schedule should begin as soon as you want, and go through May of next year.</p>
+</li>
+
+<li>
+<p><strong>Budget</strong>: Itemize what you will need to complete the project including estimated cost and a total. If things are free (e.g. open source software or you have it already) list them anyway. Also indicate what you would like the department to purchase, and what you will be purchasing yourself. Be sure to include research materials like books, CD/DVDs, and the like.</p>
+</li>
+
+<li>
+<p><strong>Development Documentation</strong>: Your project must have a web site and an associated document archive, as well as a blog for each developer. You must keep all versions and revisions of all documents and code in an archive of some sort. In this section, provide the URL to your web site as well as a thorough description of how to find all of the documentation. Include a link to each developer’s blog, or if a developer wishes to use email instead, indicate that.</p>
+</li>
+
+<li>
+<p><strong>Annotated Bibliography</strong>: This is a bibliography of the sources of information you have and will use. Each item in the bibliography should have a brief note on the reference describing the contents. In this document it is a preliminary list and it will expand as the project develops.</p>
+</li>
+
+<li>
+<p><strong>Glossary (if necessary)</strong>: Define all the major terms used in this project.<br />The glossary should be usable by someone who is a junior level CSCE student but not involved in your project.</p>
+</li>
+</ul>
+
+<p>All documents (not just this one) must be well organized and professional in appearance and content. Correct grammar and spelling is required at all times. Consistency of expression and terminology is also required. Please refer to the <a href="doc-standards.html">Document Standards</a> for further information.</p>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="784"></canvas></html>

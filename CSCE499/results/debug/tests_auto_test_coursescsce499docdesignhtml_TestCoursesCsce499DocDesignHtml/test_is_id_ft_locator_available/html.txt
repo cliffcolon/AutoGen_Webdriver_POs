@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Design Document</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__design_document">CSCE 499 - Design Document</h1>
+
+<p>The design document describes as precisely as possible how you will implement your project. It includes detailed specifications for the internal workings of your product. The requirements document described “what” your project will be, and this document describes “how” it will be implemented. The purpose of the design document is to document the structure of your code (or hardware) so that it is specified with enough detail that a developer can immediately begin implementation without any ambiguity. Typically, this is done using a variety of documentation tools (such as UML, E/R models, etc.).</p>
+
+<p>Your document should be 10-20 pages (not including title page), and follow the <a href="doc-standards.html">CSCE 499 document standards</a>.</p>
+
+<p>This document is not an update of the requirements document. Instead, this builds upon the requirements document by describing the internal design of your product. This document can and should refer the reader back to the requirements document as you <strong>describe how the design meets the requirements</strong>. At a minimum, your document must include the following sections:</p>
+
+<ul>
+<li>
+<p><strong>Title Page</strong> (no abstract necessary)</p>
+</li>
+
+<li>
+<p><strong>Table of Contents</strong></p>
+</li>
+
+<li>
+<p><strong>List of figures</strong>: All figures must be numbered and captioned.</p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: Briefly give an review/overview of the project requirements. This need not be very detailed, instead you can refer the reader to the requirements document.</p>
+</li>
+
+<li>
+<p><strong>Research review</strong>: Give a review of the research that you have completed. Describe possible alternate solutions, and why you chose your particular solution. If your project involves algorithms or mathematical theory, include a sub-section describing in detail the theory and mathematics involved.</p>
+</li>
+
+<li>
+<p><strong>Design Methodology</strong>: This should be a very large section, consisting of the majority of the report. This section should have a number of sub-sections that include various specifications. It should be systematically organized and documented. The contents will vary depending on the project and whether it is hardware or software or both. Some examples of things that you could include follow:</p>
+
+<p>Software:</p>
+
+<ul>
+<li>UML Class diagram</li>
+
+<li>Sequence and/or object diagrams showing “realization” of some of the use cases.</li>
+
+<li>Data design diagrams such as entity relationship diagram</li>
+
+<li>Schema descriptions including SQL</li>
+
+<li>SQL query design</li>
+
+<li>Detailed use cases</li>
+
+<li>Testing plans</li>
+
+<li>User interface designs</li>
+
+<li>Etc.</li>
+</ul>
+
+<p>Hardware:</p>
+
+<ul>
+<li>Theory of hardware operation</li>
+
+<li>Block diagram of system and modules</li>
+
+<li>Explanation of functional modules</li>
+
+<li>Timing diagrams</li>
+
+<li>Simulations</li>
+
+<li>Construction “blueprints”</li>
+
+<li>Etc.</li>
+</ul>
+
+<p>Almost everyone will have a need for a number of these design tools. You should utilize as many as are appropriate for your project. The goal is that your project should be specified well enough that at this point, that you could hand this document over to a person with reasonable technical skills, and he/she could complete your project for you. Contact your faculty mentor if you have questions about what might be appropriate.</p>
+</li>
+
+<li>
+<p><strong>Work Completed</strong>: Describe the work that has already been completed. Describe the results, challenges, and solutions that you have discovered along the way. If you have developed a rapid prototype, include a description of the prototype (perhaps including screen shots), and describe what you have learned and how it influenced your design.</p>
+</li>
+
+<li>
+<p><strong>Future Work</strong>: Detail your plans for the future with a specific task list. If you are in a group the tasks should be assigned to a specific group member. Be sure to include background tasks such as reading, programming exercises, etc.</p>
+</li>
+
+<li>
+<p><strong>Updated Timetable</strong>: Include an updated version of your Gantt chart with any changes in the schedule and indications of work completed. Your timetable should include all your tasks in the previous section.</p>
+</li>
+
+<li>
+<p><strong>References</strong>: A formal bibliography that is numbered and cited directly from the text. Follow the styles that are commonly found in ACM or IEEE journals.</p>
+</li>
+
+<li>
+<p><strong>Glossary</strong></p>
+</li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="1246"></canvas></html>

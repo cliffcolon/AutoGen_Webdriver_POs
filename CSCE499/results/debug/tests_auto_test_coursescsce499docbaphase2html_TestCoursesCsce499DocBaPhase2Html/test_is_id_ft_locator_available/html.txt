@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Research Paper, Phase 2</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__research_paper_phase_2">CSCE 499 - Research Paper, Phase 2</h1>
+
+<p>This is an extension of your Phase I document with more sections and a revised outline. Your document should be 10-20 pages (not including title page), and follow the <a href="doc-standards.html">CSCE 499 document standards</a>.</p>
+
+<p>At a minimum, your document must include the following sections:</p>
+
+<ul>
+<li>
+<p><strong>Title Page</strong> (including Abstract)</p>
+</li>
+
+<li>
+<p><strong>Table of Contents</strong></p>
+</li>
+
+<li>
+<p><strong>Introduction</strong>: Describe the subject area of your paper.</p>
+</li>
+
+<li>
+<p><strong>Topic Outline</strong>: Include a task schedule. Outline the structure of your entire paper with major and minor sections. For each section give a brief description. For the entire outline give a time line schedule for when you will be researching and writing that section.</p>
+</li>
+
+<li>
+<p><strong>Project Description</strong>: Describe what particular issue(s) your paper is going to address, the technical aspects of these issues, and the importance of these.</p>
+</li>
+
+<li>
+<p><strong>Topic Sections</strong>: Use your topic outline from above. In the previous, Phase I, document you should have completed one or two sections (usually these will be technical introductions to the topic). In subsequent sections you will get into details of your project. Be sure to organize the material so that a reader can follow using only the text you have written.</p>
+</li>
+
+<li>
+<p><strong>Glossary</strong>: All technical terms should be completely defined and described. Major technical terms that are central to your project must be included here but must be more thoroughly explained in one or more sections of your paper.</p>
+</li>
+
+<li>
+<p><strong>Annotated Bibliography</strong>: This is a bibliography of the sources of information you have and will use. Each item in the bibliography should have a brief note on the reference describing the contents. In this document it is a preliminary list and it will expand as the project develops.</p>
+</li>
+</ul>
+
+<p>All documents (not just this one) must be well organized and professional in appearance and content. Correct grammar and spelling is required at all times. Consistency of expression and terminology is also required. Please refer to the <a href="doc-standards.html">CSCE 499 document standards</a> for further information.</p>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="627"></canvas></html>

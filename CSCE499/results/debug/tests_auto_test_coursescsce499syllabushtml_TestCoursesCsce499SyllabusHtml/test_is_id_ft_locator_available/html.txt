@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Syllabus</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1>CSCE 499 Syllabus - 2012-2013</h1>
+
+<ul>
+<li><b>Professor:</b> David Wolff</li>
+<li><b>Class web page:</b>
+<a href="http://www.cs.plu.edu/499">http://www.cs.plu.edu/499</a></li>
+<li><b>Textbooks:</b> 
+  <ul>
+    <li><i>A Gift of Fire: Social, Legal, and Ethical Issues for Computing
+    Technology</i>, by Sara Baase, Fourth Edition, ISBN: 978-0-13-249267-6</li>
+    <li><i>Pocket Guide to Technical Communication</i>, by William Sanborn Pfeiffer,
+    Fifth Edition, ISBN: 978-0-13-506396-5</li>
+  </ul>
+</li>
+</ul>
+
+<h2>Course Goals</h2>
+<p>
+The capstone course is designed to give students the opportunity to apply their
+skills to a medium scale, team based project, over the course of two semesters.
+Students will gain the experience of bringing a project from conceptualiztion
+to implementation.  Projects are undertaken with the assistance of a faculty mentor
+(not necessarily the course instructor).  The course will include weekly 
+progress reports, presentations, peer review assignments, written reports,
+and a presentation of your final product at the division-wide academic festival.
+</p>
+<ul>
+  <li>To gain experience working on a medium-scale software and/or hardware
+  project.</li>
+  <li>To gain technical writing skills.</li>
+  <li>To gain skills in oral presentation of technical material.</li>
+  <li>To learn to document and be accountable for your progress.</li>
+  <li>To put into practice proper software/hardware engineering techniques.</li>
+  <li>To become more aware of social, legal, and ethical issues in the computing field.</li>
+</ul>
+
+<h2>Project Requirements</h2>
+<p>
+The choice of project area depends on the your major and degree.  
+</p>
+<ul>
+  <li><b>BS in Computer Science:</b>  A project that involves the implementation
+  of a software system.  These projects must include a substantial programming
+  component.  (For dual majors in CS and CE, see below.)</li>
+  <li><b>BS in Computer Engineering:</b>  A project that involves the design and
+  implementation of a significant
+  hardware component.  If your group includes students majoring in Computer Science
+  or you yourself are a dual major, your project
+  <i>must include</i> the corresponding BS/BA in CS requirements.</li>
+  <li><b>BA in Computer Science:</b>  
+  The requirements for a BA student are the same as for a BS student in computer 
+  science, but the project may be more "research focused" than "implementation focused."
+  A BA student may join a group with BS students, however, if you choose to do
+  so, you are expected to contribute to the project equally.  Your contributions
+  may be less technical than others, but must be equal in terms of effort.  For
+  example, the BA student might take the lead on testing, modelling, time 
+  management, and research.</li>
+</ul>
+
+<h2>Grading</h2>
+<p>
+Your capstone project will be carried out over the course of two semesters, and
+you will recieve a grade for each semester.  Students are expected to contribute
+equally
+to their project and meet their obligations in a timely manner.  Academic
+dishonesty will not be tolerated.  Grades will be based on the following 
+criteria:
+</p>
+<p>Grading guidelines for Fall :</p>
+<table>
+<tbody><tr>
+  <th>Course Component</th><th>Weight</th><th>Description</th>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Weekly Progress Reports</td>
+  <td>10%</td>
+  <td>As an individual, you are required to provide weekly progress reports.  Your
+  grade will be based on timely submission, completeness, and evidence of 
+  progress.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Attendance</td>
+  <td>10%</td>
+  <td>You are required to attend the departmental "Tech talk" seminar
+  sessions, as well as class sessions.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Proposal</td>
+  <td>5%</td>
+  <td>Initial project proposal.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Requirements Document</td>
+  <td>25%</td>
+  <td>Formal specification of requirements.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Design Report</td>
+  <td>30%</td>
+  <td>Formal design specifications.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Social, Legal, and Ethical Assignments</td>
+  <td>10%</td>
+  <td>We will discuss a variety of social, legal, and ethical topics at 
+  various times during the term, and
+  this will include readings, discussions and papers.  You are expected to
+  participate in class discussions.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Design Presentation</td>
+  <td>10%</td>
+  <td>A presentation of your design.</td>
+</tr>
+</tbody></table>
+
+<p>Grading guidelines for Spring :</p>
+<table>
+<tbody><tr>
+  <th>Course Component</th><th>Weight</th><th>Description</th>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Weekly Progress Reports</td>
+  <td>10%</td>
+  <td>As an individual, you are required to submit weekly progress reports.  Your
+  grade will be based on timely submission, completeness, and evidence of progress.
+  </td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Attendance</td>
+  <td>10%</td>
+  <td>You are required to attend the departmental "Tech talk" seminar
+  sessions, as well as class sessions.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Social, Legal, and Ethical Assignments</td>
+  <td>10%</td>
+  <td>We will discuss a variety of social, legal, and ethical topics at 
+  various times during the term, and
+  this will include readings, discussions and papers.  You are expected to
+  participate in class discussions.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Technical Reviews</td>
+  <td>10%</td>
+  <td>There will be two technical reviews during the semester.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Presentation at Academic Festival</td>
+  <td>20%</td>
+  <td>A presentation of your final product at the division-wide Academic Festival.</td>
+</tr>
+<tr>
+  <td style="font-weight: bold;">Final Report</td>
+  <td>40%</td>
+  <td>The final document that presents the entire project from start to finish.</td>
+</tr>
+
+</tbody></table>
+
+<p>
+Your overall grade depends on the above weights as well as various
+factors including class participation, your contributions to your team, 
+accomplishment of project goals, attitude, and timeliness.  Your final grade
+will be assigned in consultation with your project advisor.
+</p>
+
+<h2>Academic Honesty</h2>
+<p>
+All work submitted in this course must be your own and produced exclusively for
+this course. The use of sources (ideas, quotations, paraphrases) must be
+properly acknowledged and documented. For the consequences of academic
+dishonesty, refer to the PLU catalog or Please also refer to the PLU catalog or
+<a href="http://www.plu.edu/academics/integ.html">
+         http://www.plu.edu/academics/integ.html</a>.
+In addition, any code or technology that is part of your project that is not 
+written/created by you must be clearly indicated in all documentation.  If you 
+are in doubt regarding the requirements, please consult with the instructor 
+before you complete any requirement of the course.
+</p>
+
+<h2>Weather Related Closures</h2> 
+<p>In the event of extreme
+weather, closure information may be obtained from the "Campus Closure"
+hotline (535-7100).  If the university is open, but this class needs
+to be cancelled, that information can either be found on the course forum 
+or from your instructor's
+voice mail message.  Students are urged to use caution
+and personal discretion and avoid undue risk and personal danger when
+making travel decisions during extreme weather conditions.</p>
+
+<h2>Disabilities</h2>
+<p>If you need course adaptations or accommodations because of a disability,
+if you have emergency medical information to share with me, or if you
+need special arrangements in case the building must be evacuated,
+please make an appointment with me as soon as possible.</p>
+<p>
+Students are also reminded that they are responsible for notifying instructors
+of any conditions that may impair their academic performance.  Without 
+advance warning, such difficulties cannot be used later as a basis
+for requesting make-up exams or reconsideration of grades.</p>
+
+<!-- <div class="section-label">Withdrawal Dates</div>
+<p> 
+ Last day to drop a class with a full refund is 
+ <b>September 20</b>. 
+ The last day to withdraw from a class with a W grade and a fee 
+ is <b>November 29</b>.
+</p>
+ -->
+
+<!-- End Syllabus -->
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="1793"></canvas></html>

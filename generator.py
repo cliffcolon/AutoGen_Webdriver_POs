@@ -17,9 +17,7 @@ import logging
 from tempfile import mkstemp
 from shutil import move
 from os import remove, close
-
 from posixpath import basename, dirname
-
 from cgi import escape
 from traceback import format_exc
 from Queue import Queue, Empty as QueueEmpty
@@ -27,210 +25,16 @@ from Queue import Queue, Empty as QueueEmpty
 from bs4 import BeautifulSoup
 from HTMLParser import HTMLParser
 
+"""
+TITLE: 
+Automated Generation of Test Code for Web Applications
 
-__version__ = "0.2"
-USAGE = "%prog [options] <url>"
-VERSION = "%prog v" + __version__
-
-AGENT = "%s/%s" % (__name__, __version__)
-
-
-class Link (object):
-
-    def __init__(self, src, dst, link_type):
-
-        """
-        Constructor
-        """
-
-        self.src = src
-        self.dst = dst
-        self.link_type = link_type
-
-    """
-    NOTE: If your class is intended to be subclassed, and you have attributes that 
-    you do not want subclasses to use, consider naming them with double leading 
-    underscores and no trailing underscores. This invokes Python's name mangling 
-    algorithm, where the name of the class is mangled into the attribute name. 
-    This helps avoid attribute name collisions should subclasses inadvertently 
-    contain attributes with the same name.
-    """
-    def __hash__(self):
-        return hash((self.src, self.dst, self.link_type))
-
-    def __eq__(self, other):
-        return (self.src == other.src and
-                self.dst == other.dst and
-                self.link_type == other.link_type)
-    
-    def __str__(self):
-        return self.src + " -> " + self.dst
-
-class Crawler(object):
-
-    """
-    The Crawler repeatedly searches an HTML parse tree starting from the supplied URL.
-    """
-
-    def __init__(self, root, depth_limit, confine=None, exclude=[], locked=True, filter_seen=True):
-
-        """
-        Constructor
-        """
-
-        self.root = root
-        self.host = urlparse.urlparse(root)[1]
-
-        ## Data for filters:
-        self.depth_limit = depth_limit # Max depth (number of hops from root)
-        self.locked = locked           # Limit search to a single host
-        self.confine_prefix=confine    # Limit search to this prefix
-        self.exclude_prefixes=exclude; # URL prefixes NOT to visit
-                
-        self.urls_seen = set()          # Used to avoid putting duplicates in queue
-        self.urls_remembered = set()    # Used for reporting to user
-        self.visited_links= set()       # Used to avoid re-processing a page
-        self.links_remembered = set()   # Used for reporting to user
-        
-        self.num_links = 0              # Links found (and not excluded by filters)
-        self.num_followed = 0           # Links followed.  
-
-        # Pre-visit filters:  Only visit a URL if it passes these tests
-        self.pre_visit_filters=[self._prefix_ok,
-                                self._exclude_ok,
-                                self._not_visited,
-                                self._same_host]
-
-        # Out-url filters: When examining a visited page, only process
-        # links where the target matches these filters.        
-        if filter_seen:
-            self.out_url_filters=[self._prefix_ok, 
-                                  self._same_host]
-        else:
-            self.out_url_filters=[]
-
-    def _pre_visit_url_condense(self, url):
-
-        """
-        Strips the fragment component from URL's
-        """
-        base, frag = urlparse.urldefrag(url)
-        return base
-
-    """
-    URL Filtering functions: 
-    These all use information from the state of the Crawler to evaluate 
-    whether a given URL should be used in some context.  Return value 
-    of True indicates that the URL should be used.
-    """
-    
-    def _prefix_ok(self, url):
-        """
-        Pass if the URL has the correct prefix, or none is specified
-        """
-        logging.debug('Verify tht URL has correct prefix')
-        return (self.confine_prefix is None  or
-                url.startswith(self.confine_prefix))
-
-    def _exclude_ok(self, url):
-        """
-        Pass if the URL does not match any exclude patterns
-        """
-        logging.debug('URL does not match any exclude patterns')
-        prefixes_ok = [ not url.startswith(p) for p in self.exclude_prefixes]
-        return all(prefixes_ok)
-    
-    def _not_visited(self, url):
-        """
-        Pass if the URL has not already been visited
-        """
-        logging.debug('URL has not been visited')
-        return (url not in self.visited_links)
-    
-    def _same_host(self, url):
-        """
-        Pass if the URL is on the same host as the base URL
-        """
-        logging.debug('URL is on the same host as the base URL')
-        try:
-            host = urlparse.urlparse(url)[1]
-            return re.match(".*%s" % self.host, host) 
-        except Exception, e:
-            print >> sys.stderr, "ERROR: Can't process url '%s' (%s)" % (url, e)
-            return False
-            
-
-    def crawl(self):
-
-        """ 
-        The Crawler component  repeatedly searches the HTML parse tree for <A> tags. To be 
-        added to the search queue, the <A> tag must meet the following conditions:
-
-        1) The URL must be within the specific depth limit provided by the user.
-        2) The URL must be new and one that hasn't been visited by the crawl queue previously.
-        3) The URL must not match any of the "do not follow" filters defined by the user. 
-
-        The Crawler will continue to execute until all URL's in the siteparse tree have 
-        been visited and searched for additional URL's. Once this has completed the Crawler will exit.
-        """
-        
-        q = Queue()
-        q.put((self.root, 0))
-
-        while not q.empty():
-            this_url, depth = q.get()
-            
-            #Non-URL-specific filter: Discard anything over depth limit
-            if depth > self.depth_limit:
-                continue
-            
-            #Apply URL-based filters.
-            do_not_follow = [f for f in self.pre_visit_filters if not f(this_url)]
-            
-            #Special-case depth 0 (starting URL)
-            if depth == 0 and [] != do_not_follow:
-                print >> sys.stderr, "Whoops! Starting URL %s rejected by the following filters:", do_not_follow
-
-            #If no filters failed, process URL
-            if [] == do_not_follow:
-                try:
-                    self.visited_links.add(this_url)
-                    self.num_followed += 1
-
-                    logging.debug('Fetching URL:' + this_url)
-                    page = Fetcher(this_url)
-                    page.fetch()
-
-                    for link_url in [self._pre_visit_url_condense(l) for l in page.out_links()]:
-                        if link_url not in self.urls_seen:
-                            q.put((link_url, depth+1))
-                            self.urls_seen.add(link_url)
-                            
-                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]
-                        if [] == do_not_remember:
-                                self.num_links += 1
-                                self.urls_remembered.add(link_url)
-                                link = Link(this_url, link_url, "href")
-                                if link not in self.links_remembered:
-                                    self.links_remembered.add(link)
-                except Exception, e:
-                    print >>sys.stderr, "ERROR: Can't process URL '%s' (%s)" % (this_url, e)
-
-class OpaqueDataTypeException (Exception):
-    
-    """
-    Opaque Data type is a data type that is incompletely defined in an 
-    interface, so that its values can only be manipulated by calling 
-    subroutines that have access to the missing information. The concrete 
-    representation of the type is hidden from its users. (WIKIPEDIA)
-    """
-
-    def __init__(self, message, mimetype, url):
-
-        Exception.__init__(self, message)
-        self.mimetype=mimetype #Multi-Purpose Intenet Mail Extensions 
-        self.url=url
-        
+ABSTRACT:
+Developing a test automation framework for a website requires many man-hours 
+of development time. By leveraging several popular open source test tools, 
+site crawling and element scraping techniques, this project automates the 
+generation of test code for a web application in a matter of minutes.
+"""
 
 class Fetcher(object):
     
@@ -246,12 +50,6 @@ class Fetcher(object):
     def __getitem__(self, x):
         return self.out_urls[x]
 
-    def out_links(self):
-        return self.out_urls
-
-    def _addHeaders(self, request):
-        request.add_header("User-Agent", AGENT)
-
     def _open(self):
         url = self.url
         try:
@@ -261,26 +59,26 @@ class Fetcher(object):
             return None
         return (request, handle)
 
+    def output_links(self):
+        return self.out_urls
+
+
     def fetch(self):
 
         """
-        CLIFF NOTE: ADD FUNCTION COMMENT HERE
+        The fetch def uses BeautifulSoup and urllib2 to parse URL's for 
+        additional A HREF's and call the scraper to get page elements.
         """
-
         request, handle = self._open()
-        self._addHeaders(request)
+
         if handle:
             try:
                 data=handle.open(request)
-                mime_type=data.info().gettype()
                 url=data.geturl();
-                if mime_type != "text/html":
-                    raise OpaqueDataTypeException("Not interested in files of type %s" % mime_type,
-                                              mime_type, url)
-                content = unicode(data.read(), "utf-8",
-                        errors="replace")
-                soup = BeautifulSoup(content)
+                code_syntax = unicode(data.read(), "utf-8", errors="replace")
+                soup = BeautifulSoup(code_syntax)
                 tags = soup('a') # Scrape 'a' from HREF using BeautufulSoup object
+
             except urllib2.HTTPError, error:
                 if error.code == 404:
                     print >> sys.stderr, "ERROR: %s -> %s" % (error, error.url)
@@ -289,17 +87,19 @@ class Fetcher(object):
                     print >> sys.stderr, "ERROR: %s" % error
                     logging.error('HTTP Error found')
                 tags = []
+
             except urllib2.URLError, error:
                 print >> sys.stderr, "ERROR: %s" % error
+                logging.error('URL Error found')
                 tags = []
-            except OpaqueDataTypeException, error:
-                print >>sys.stderr, "Skipping %s, has type %s" % (error.url, error.mimetype)
-                tags = []
+
             for tag in tags:
                 href = tag.get("href")
                 pattern = '()@;'
+
                 if href is not None:
                     url = urlparse.urljoin(self.url, escape(href))
+
                     if url not in self:
                         if url[-1:] != '/':
                             #Omit URL's that are email or other none pages
@@ -310,8 +110,176 @@ class Fetcher(object):
                     print url
                     logging.info(url)
                     scraper = Scraper()
-                    scraper.scrapePage(content, url) #Scrape page for specific HTML elements
+                    scraper.scrapePage(code_syntax, url) #Scrape page for specific HTML elements
 
+
+class Spider(object):
+
+    """
+    The Spider repeatedly searches an HTML parse tree starting from the supplied URL.
+    """
+
+    def __init__(self, base_url, depth_max, restrict=None, locked=True, filter_seen=True):
+
+        """
+        Constructor
+        """
+        self.base_url = base_url
+        self.host = urlparse.urlparse(base_url)[1]
+
+        #Keep track of URL's visited to avoid duplication
+        self.urls_viewed = set()
+        self.urls_cached = set()
+        self.visited_links= set()
+        self.links_remembered = set()
+
+        #Counters        
+        self.count_links = 0
+        self.count_followed = 0 
+
+        #Filters data variables
+        self.depth_max = depth_max
+        self.locked = locked
+        self.restrict_prefix=restrict
+        
+        # Filters must past gateway conditions
+        logging.debug('Filters Gateway Definition')
+        self.filters_gateway=[self._prefix_pass, self._not_visited, self._same_host]
+       
+        if filter_seen:
+            self.out_url_filters=[self._prefix_pass, 
+                                  self._same_host]
+        else:
+            self.out_url_filters=[]
+
+    def _pre_visit_url_condense(self, url):
+
+        """
+        Strips the fragment component from URL's
+        """
+        base, frag = urlparse.urldefrag(url)
+        return base
+
+    """
+    URL Filtering functions: 
+    These all use information from the state of the Spider to evaluate 
+    whether a given URL should be used in some context.  Return value 
+    of True indicates that the URL should be used.
+    """
+
+    def _same_host(self, url):
+        """
+        Pass the same host as the base URL
+        """
+        logging.debug('URL is on the same host as the base URL')
+        try:
+            host = urlparse.urlparse(url)[1]
+            logging.debug('HOST: ' + host)
+            logging.debug('HOST (self): ' + self.host)
+            return re.match(".*%s" % self.host, host) 
+        except Exception, e:
+            print >> sys.stderr, "ERROR: Can't process url '%s' (%s)" % (url, e)
+            return False
+ 
+    
+    def _prefix_pass(self, url):
+        """
+        Pass if URL uses correct prefix
+        """
+        logging.debug('Verify tht URL has correct prefix')
+        return (self.restrict_prefix is None  or
+                url.startswith(self.restrict_prefix))
+
+    def _not_visited(self, url):
+        """
+        Pass for URL not previously visited
+        """
+        logging.debug('URL has not been visited')
+        return (url not in self.visited_links)
+    
+
+    def crawl(self):
+
+        """ 
+        The Spider component  repeatedly searches the HTML parse tree for <A> tags. To be 
+        added to the search queue, the <A> tag must meet the following conditions:
+
+        1) The URL must be within the specific depth limit provided by the user.
+        2) The URL must be new and one that hasn't been visited by the crawl queue previously.
+        3) The URL must not match any of the "do not follow" filters defined by the user. 
+
+        The Spider will continue to execute until all URL's in the siteparse tree have 
+        been visited and searched for additional URL's. Once this has completed the Spider will exit.
+        """
+        
+        queue = Queue()
+        queue.put((self.base_url, 0))
+
+        while not queue.empty():
+            url_current, depth = queue.get()
+            
+            if depth > self.depth_max:
+                continue
+
+            logging.debug('Pre Dont Follow')
+            dont_follow = [f for f in self.filters_gateway if not f(url_current)]
+            logging.debug('Post Dont Follow')
+
+            if [] != dont_follow and depth == 0:
+                print >> sys.stderr, "URL %s rejected:", dont_follow
+
+            #Process URL
+            if [] == dont_follow:
+                try:
+                    self.visited_links.add(url_current)
+                    self.count_followed += 1
+                    logging.debug('Fetching URL:' + url_current)
+                    page = Fetcher(url_current)
+                    page.fetch()
+
+                    for link_url in [self._pre_visit_url_condense(l) for l in page.output_links()]:
+                        if link_url not in self.urls_viewed:
+                            queue.put((link_url, depth+1))
+                            self.urls_viewed.add(link_url)
+                            
+                        do_not_remember = [f for f in self.out_url_filters if not f(link_url)]
+                        if [] == do_not_remember:
+                                self.count_links += 1
+                                self.urls_cached.add(link_url)
+                                link = Hyperlink(url_current, link_url, "href")
+                                if link not in self.links_remembered:
+                                    self.links_remembered.add(link)
+
+                except Exception, e:
+                    print >>sys.stderr, "ERROR: Cannot process URL '%s' (%s)" % (url_current, e)
+        
+
+class Hyperlink(object):
+
+    def __init__(self, src, dst, type_of_link):
+
+        """
+        Constructor
+        """
+        self.src = src
+        self.dst = dst
+        self.type_of_link = type_of_link
+
+    """
+    NOTE: If your class is intended to be subclassed, and you have attributes that 
+    you do not want subclasses to use, consider naming them with double leading 
+    underscores and no trailing underscores. 
+    """
+    def __str__(self):
+        return self.src + " -> " + self.dst
+
+    def __eq__(self, other):
+        return (self.src == other.src and
+                self.dst == other.dst and
+                self.type_of_link == other.type_of_link)
+
+    def __hash__(self):
+        return hash((self.src, self.dst, self.type_of_link))
 
 
 class Generate(object):
@@ -358,6 +326,7 @@ class Generate(object):
         os.mkdir(dir_framework + "/pages/auto")
         os.mkdir(dir_framework + "/tests/auto")           
 
+
     def generateVariable(self, fh, var, define):
 
         """
@@ -381,8 +350,8 @@ class Generate(object):
 
         lib_page_is_element_visible = "lib/page_is_element_visible.py"
 
-        content = open(lib_page_is_element_visible).read()
-        replacedText = content.replace(wc1, var)
+        code_syntax = open(lib_page_is_element_visible).read()
+        replacedText = code_syntax.replace(wc1, var)
         replacedText = replacedText.replace(wc2, var)
 
         fh.write("\n" + replacedText)
@@ -410,8 +379,8 @@ class Generate(object):
         fh.write("\n")
 
         fh.write("\"\"\"")
-        fh.write("Created on " + now.strftime("%Y-%m-%d %H:%M"))
-        fh.write("@author: Selenium Webdriver Code Generator")
+        fh.write("\nCreated on " + now.strftime("%Y-%m-%d %H:%M"))
+        fh.write("\n@author: Selenium Webdriver Code Generator\n")
         fh.write("\"\"\"\n")
 
         fh.write("import pytest\n")
@@ -428,9 +397,9 @@ class Generate(object):
             fh.write("\n    @pytest.mark.nondestructive\n")
             fh.write("    def test_" + test + "(self, mozwebqa):\n")
             fh.write("\n")
-            fh.write("        \"\"\"")
-            fh.write("        Test pages elements defined in " + classname + "page object: " + classname.lower() + ".py") 
-            fh.write("        \"\"\"")
+            fh.write("        \"\"\"\n")
+            fh.write("        Test pages elements defined in " + classname + "page object: " + classname.lower() + ".py\n") 
+            fh.write("        \"\"\"\n")
             fh.write("        page = " + classname + "(mozwebqa)\n")
             fh.write("        Assert.true(page." + test + ")\n")
             
@@ -479,12 +448,12 @@ class Scraper(object):
         return soup
 
 
-    def scrapePage(self, content, url):
+    def scrapePage(self, code_syntax, url):
 
         """
         CLIFF NOTE: ADD FUNCTION COMMENT HERE
         """
-        soup = BeautifulSoup(content)
+        soup = BeautifulSoup(code_syntax)
 
         parse_object = urlparse.urlparse(url)
         filepath = parse_object.path[1:]
@@ -506,16 +475,16 @@ class Scraper(object):
                 logging.debug(classname + 'Found')
             else:
                 logging.debug(classname + 'Not Found')
-                scraper.scrapePageCont(content, url, classname, filepath)
+                scraper.scrapePageCont(code_syntax, url, classname, filepath)
 
 
-    def scrapePageCont(self, content, url, classname, filepath):
+    def scrapePageCont(self, code_syntax, url, classname, filepath):
 
         """
         CLIFF NOTE: ADD FUNCTION COMMENT HERE
         """
         logging.debug('Scraping page')
-        soup = BeautifulSoup(content)
+        soup = BeautifulSoup(code_syntax)
         now = datetime.datetime.now()
         testMethods = []
 
@@ -539,8 +508,8 @@ class Scraper(object):
 
         #Write comment for creation date and author
         fh.write("\"\"\"")
-        fh.write("Created on " + now.strftime("%Y-%m-%d %H:%M"))
-        fh.write("@author: Selenium Webdriver Code Generator")
+        fh.write("\nCreated on " + now.strftime("%Y-%m-%d %H:%M"))
+        fh.write("\n@author: Selenium Webdriver Code Generator\n")
         fh.write("\"\"\"\n")
 
         #Create page object header code by manipulating library code
@@ -550,9 +519,9 @@ class Scraper(object):
         fh.write("\n\nclass " + classname + "(Base):\n") 
         
         #Write main comment for class
-        fh.write("        \"\"\"")
-        fh.write("        Variable definitions of  " + classname + " page object based on site HTML elements.") 
-        fh.write("        \"\"\"")
+        fh.write("    \"\"\"\n")
+        fh.write("    Variable definitions of  " + classname + " page object based on site HTML elements.\n") 
+        fh.write("    \"\"\"")
 
         """
         Parse Title:
@@ -577,7 +546,7 @@ class Scraper(object):
            (c) Variable Definition: _div_banner_top_locator = (By.ID, "banner-top")
            (d) Generated Selenium: The generated code should verify that the DIV ID exists on the page.
         """
-        #CLIFF NOTE: Possibly delete or add debug condition for printing.
+        
         logging.debug('Parse all DIVS with ids')
         fh.write("\n\n    # Variables defined by ID element")
         divs = soup.findAll('div',{'id':True})    
@@ -680,7 +649,6 @@ class Scraper(object):
 
                 #Print Class
                 logging.debug(out_str)
-
                 out_str2 = out_str.replace("-", "_")
                 out_str2 = out_str2.replace(".", "_")
                 varTextboxClass = "_textbox_class_" + out_str2 + "_locator"
@@ -771,7 +739,6 @@ class Scraper(object):
             testMethods.append(methodName)
             gen.generateFindElement(fh, varName)
 
-
         fh.close()
 
         if classname != "":
@@ -786,59 +753,43 @@ def getLinks(url):
     logging.debug('Get Links')
     page = Fetcher(url)
     page.fetch()
-    for i, url in enumerate(page):
-        print "%d. %s" % (i, url)
+    for u, url in enumerate(page):
+        logging.info("%d. %s" % (u, url))
 
 
-def parse_options():
+def parse_cmd_line():
        
     """
-    Parse any command-line options given returning both
-    the parsed options and arguments.
+    Parse command-line arguements
+
+    FUTURE WORK: Replace OptionParses (old) with argparse (new)
     """
 
-    parser = optparse.OptionParser(usage=USAGE, version=VERSION)
-
-    parser.add_option("-q", "--quiet",
-                      action="store_true", default=False, dest="quiet",
-                      help="Enable quiet mode")
+    parser = optparse.OptionParser()
 
     parser.add_option("-l", "--links",
-                      action="store_true", default=False, dest="links",
-                      help="Get links for specified url only")    
+                      action="store_true", default=True, dest="links",
+                      help="Only get links for specific URL")    
 
     parser.add_option("-d", "--depth",
-                      action="store", type="int", default=30, dest="depth_limit",
-                      help="Maximum depth to Crawl")
+                      action="store", type="int", default=25, dest="depth_max",
+                      help="Maximum depth to crawl")
 
-    parser.add_option("-c", "--confine",
-                      action="store", type="string", dest="confine",
-                      help="Confine crawl to specified prefix")
-
-    parser.add_option("-x", "--exclude", action="append", type="string",
-                      dest="exclude", default=[], help="Exclude URLs by prefix")
-   
-    parser.add_option("-L", "--show-links", action="store_true", default=False,
-                      dest="out_links", help="Output links found")
-
-    parser.add_option("-u", "--show-urls", action="store_true", default=False,
-                      dest="out_urls", help="Output URLs found")
+    parser.add_option("-r", "--restrict",
+                      action="store", type="string", dest="restrict",
+                      help="Limit crawl to specific prefix")
     
     parser.add_option("-o", "--output", action="store", type="string", default="SeleniumAuto",
                       dest="output", help="Output Directory to Generate To")
 
 
-    opts, args = parser.parse_args()
+    options, arguements = parser.parse_args()
 
-    if len(args) < 1:
+    if len(arguements) < 1:
         parser.print_help(sys.stderr)
         raise SystemExit, 1
 
-    if opts.out_links and opts.out_urls:
-        parser.print_help(sys.stderr)
-        parser.error("Mutually exclusive options: -L and -u")
-
-    return opts, args
+    return options, arguements
 
 
 def main():    
@@ -846,34 +797,25 @@ def main():
     """
     CLIFF NOTE: ADD FUNCTION COMMENT HERE
     """
-
     LOG_FILENAME = 'generator.log'
 
     logging.basicConfig(filename=LOG_FILENAME,filemode='w',level=logging.DEBUG)
     logging.info('Starting auto-generator')
-    logging.debug('Initialing variables')
+    logging.debug('Initializing variables')
 
-    opts, args = parse_options()
-    url = args[0]
-
-    if opts.links:
-        getLinks(url)
-        raise SystemExit, 0
-
-    depth_limit = opts.depth_limit
-    confine_prefix=opts.confine
-    exclude=opts.exclude
-
-    sTime = time.time()
-
+    options, arguements = parse_cmd_line()
     global dest_dir # Output folder used throughout...
-    dest_dir = opts.output
+    dest_dir = options.output
+    url = arguements[0]
 
     logging.debug('Initializing new framework')
-
     gen = Generate()
     gen.generateFramework()
-    
+
+    depth_max = options.depth_max
+    restrict_prefix=options.restrict
+    sTime = time.time()
+
     #Copy all prerequisite files
     logging.debug('Coping all prerequisite files to new framework')
     src1 = "conftest.py"
@@ -884,6 +826,8 @@ def main():
     src6 = "page.py"
     src7 = "__init__.py"
     src8 = "base.py"
+
+    logging.info('Destination Directory: ' + dest_dir)
 
     gen.copyAnything("lib/" + src1, dest_dir + "/" + src1)
     gen.copyAnything("lib/" + src2, dest_dir + "/" + src2)
@@ -910,25 +854,20 @@ def main():
     gen.copyAnything("lib/" + src8, dest_dir + "/pages/auto/" + src8)
     gen.copyAnything("lib/" + src7, dest_dir + "/pages/auto/" + src7)
 
-    print >> sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_limit)
+    if options.links:
+        getLinks(url)
+        raise SystemExit, 0
+
+    print >> sys.stderr,  "Crawling %s (Max Depth: %d)" % (url, depth_max)
     logging.debug('Begin crawling URL based on prerequisite filters')
-    crawler = Crawler(url, depth_limit, confine_prefix, exclude)
+    crawler = Spider(url, depth_max, restrict_prefix)
     crawler.crawl()
-
-    if opts.out_urls:
-        print "\n".join(crawler.urls_seen)
-
-    if opts.out_links:
-        print "\n".join([str(l) for l in crawler.links_remembered])
-      
 
     eTime = time.time()
     tTime = eTime - sTime
 
-    print >> sys.stderr, "Found:    %d" % crawler.num_links
-    print >> sys.stderr, "Followed: %d" % crawler.num_followed
-    print >> sys.stderr, "Stats:    (%d/s after %0.2fs)" % (
-            int(math.ceil(float(crawler.num_links) / tTime)), tTime)
+    print >> sys.stderr, "Found:    %d" % crawler.count_links
+    print >> sys.stderr, "Followed: %d" % crawler.count_followed
 
 if __name__ == "__main__":
     main()

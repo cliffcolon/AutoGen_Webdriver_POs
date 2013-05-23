@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Requirements</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_capstone_project_requirements">CSCE Capstone Project Requirements</h1>
+
+<h2 id="course_goals">Course Goals</h2>
+
+<p>The capstone course is designed to give students the opportunity to apply their skills to a medium scale, (team based - optional but highly recommended) project, over the course of two semesters. Students will gain the experience of bringing a project from conceptualization to implementation. Projects are undertaken with the guidance of a faculty mentor (not necessarily the course instructor). The course will include weekly progress reports, presentations, written reports, and a presentation of your final product at the division-wide academic festival in the spring term.</p>
+
+<p>In addition to the project component, there will be components on technical writing and on social, legal, and ethical issues in computer technology.</p>
+
+<ul>
+<li>To gain experience working on a medium-scale software and/or hardware project.</li>
+
+<li>To gain technical writing and oral communication skills.</li>
+
+<li>To learn to document and be accountable for your progress.</li>
+
+<li>To put into practice proper software/hardware engineering techniques.</li>
+
+<li>To become more aware of social, legal, and ethical issues in the computing field.</li>
+</ul>
+
+<h2 id="project_requirements">Project Requirements</h2>
+
+<p><strong>BS in Computer Science</strong>: The project must involve a significant software design and implementation component.</p>
+
+<p><strong>BS in Computer Engineering</strong>: The project must involve a significant hardware design and implementation component.</p>
+
+<p><strong>BA in Computer Science</strong>: The project must involve a significant technical computer science research and analysis component. Software implementation is optional and need not be as complex as a BS implementation.</p>
+
+<p>Regardless of your major, the following components must be included as part of your project.</p>
+
+<ul>
+<li>A project web site (one per team)</li>
+
+<li>A developer blog (one per team member)</li>
+
+<li>Documents and presentations (see below)</li>
+</ul>
+
+<p>Each of these are described in more detail below.</p>
+
+<h3 id="project_web_site">Project web site</h3>
+
+<p>Every project must have a web site. The web site must include a description of your project, copies of all documents, and any other information you’d like to provide. Think of this as your “digital portfolio.” You can use this as a way to advertise your work to potential future employers.</p>
+
+<p>You have several options for hosting your web site.</p>
+
+<ul>
+<li>You can use one of the free software development web hosts such as GitHub (<a href="">https://github.com</a>), Google Code (<a href="">http://code.google.com/</a>), Gitorious (<a href="">https://gitorious.org/</a>) or Sourceforge (<a href="">http://sourceforge.net/</a>).</li>
+
+<li>You can use the PLU CSCE servers to host your project web site. To get started, apply for a project account at <a href="">https://hub.cs.plu.edu</a>.</li>
+
+<li>You could use Google Sites that is provided as part of the PLU Google Apps subcription. To create a site, log into your email, and click on “Sites” at the top of the page.</li>
+</ul>
+
+<p>Regardless of how you choose to host your web site, you must provide a link to your web site to the instructor on or before the designated due date.</p>
+
+<h3 id="developer_blogs">Developer blogs</h3>
+
+<p>Each team member must have a blog that is easily accessible to the instructor. This can be part of the project web site, or it can be as simple as a weekly email to the capstone professor. You must contribute a blog entry at least once a week. The capstone professor will check for this each week on the designated due date. If your entry is late, it will receive no credit.</p>
+
+<p>Your weekly blog entry must include the following information:</p>
+
+<ul>
+<li>Project progress during the previous week, both individual (what did <em>you</em> do), and as a team (what did the <em>team</em> accomplish).</li>
+
+<li>Plans for the next week (individual and team).</li>
+
+<li>Self assessment and team assessment. Describe how you would assess your own work over the past week, as well as the work of the rest of your team.</li>
+</ul>
+
+<p>Note that if you prefer this information to be private, you can email your blog entry to the professor directly instead of posting it to a web site.</p>
+
+<h3 id="documents_and_presentations">Documents and Presentations</h3>
+
+<p>Each team must complete a set of documents and present a few oral presentations. The following summarizes what you’ll be asked to complete. All documents must adhere to the <a href="doc-standards.html">capstone document standards</a>.</p>
+
+<p><strong>Fall</strong></p>
+
+<ul>
+<li>Proposal</li>
+
+<li>Requirements Document (BS), Phase 1 (BA)</li>
+
+<li>Design Document (BS), Phase 2 (BA)</li>
+
+<li>Design Presentation</li>
+</ul>
+
+<p><strong>Spring</strong></p>
+
+<ul>
+<li>Presentation: Code/Design Review 1 (BS), Phase 3 (BA)</li>
+
+<li>Presentation: Code/Design Review 2 (BS), Phase 4 (BA)</li>
+
+<li>Final Presentation at Academic Festival</li>
+
+<li>Final Report</li>
+</ul>
+
+<p>More details on each of these will be provided in class and on the class web site.</p>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="1483"></canvas></html>

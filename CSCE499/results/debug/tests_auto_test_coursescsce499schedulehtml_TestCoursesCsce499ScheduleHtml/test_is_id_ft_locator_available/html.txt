@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Schedule</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<p style="font-style: italic">Schedule may change during the semester.</p>
+<!--
+<h2>Fall 2012</h2>
+
+<table class="schedule">
+<tbody>
+<tr><th style="width: 8em">Week</th><th>Topic</th><th>Reading</th><th>Assignment</th></tr>
+<tr><td>9/4-9/6</td>
+  <td>Tue: Welcome, Introduction to the course (<a href="slides/day01-intro.pdf">slides</a>)<br />Thu: Faculty pitch project ideas</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>9/11-9/13</td>
+  <td>Tue: Intro to LaTeX (example: <a href="hello.tex">hello.tex</a>)<br />Thu: More with LaTeX</td>
+  <td>Baase Chapter 1</td>
+  <td>Due: (Thu) <a href="doc-proposal.html">Project Proposal</a></td>
+</tr>
+<tr><td>9/18-9/20</td>
+  <td>Tue: Discussion: change and ethics<br />Thu: </td>
+  <td>Pfeiffer Chapter 1</td>
+  <td>Due: (Tue) Baase Review Exercises 1.1, 1.2, 1.5, 1.7, 1.8, 1.9.</td>
+</tr>
+<tr><td>9/25-9/27</td>
+  <td>Tue: <br />Thu: Bibliographies with BibTeX</td>
+  <td>Pfeiffer, Chapter 2</td>
+  <td>Due: (Tue) Project web site</td>
+</tr>
+<tr><td>10/2-10/4</td>
+  <td>Tue: <br />Thu: </td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>10/9-10/11</td>
+  <td>Tue: Discussion: privacy<br />Thu: Presentation Skills</td>
+  <td>Baase, Chapter 2; Pfeiffer Chapter 4</td>
+  <td>Due: (Tue) Baase Review Exercises 2.1-2.7</td>
+</tr>
+<tr><td>10/16-10/18</td>
+  <td>Tue: <a href="presentation-requirements.html">Requirements presentations</a>
+  <br />Thu: <a href="presentation-requirements.html">Requirements presentations</a></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>10/23-10/25</td>
+  <td>Tue: Tech Talk: Josh Nelson &amp; Alex Brynza, EMC Isilon<br />Thu: </td>
+  <td></td>
+  <td>Due: (Thu) <a href="doc-requirements.html">Requirements document</a></td>
+</tr>
+<tr><td>10/30-11/1</td>
+  <td>Tue:  <br />Thu: </td>
+  <td></td>
+  <td>Due: (Thu) Baase 3.1-3.7</td>
+</tr>
+<tr><td>11/6-11/8</td>
+  <td>Tue: Tech Talk: Brent Chamberlain<br />Thu: Discussion: Freedom of speech</td>
+  <td>Baase Chapter 3</td>
+  <td></td>
+</tr>
+<tr><td>11/13-11/15</td>
+  <td>Tue: Tech Talk: Logos Software<br />Thu: </td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>11/20-11/22</td>
+  <td>Tue: <br />Thu: Thanksgiving Recess</td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>11/27-11/29</td>
+  <td>Tue: <br />Thu: Discussion: Intellectual Property</td>
+  <td>Baase Chapter 4</td>
+  <td>Due: (Thu) Baase 4.1-4.8</td>
+</tr>
+<tr><td>12/4-12/6</td>
+  <td>Tue: <a href="presentation-design.html">Design presentations</a><br />
+  Thu: <a href="presentation-design.html">Design presentations</a></td>
+  <td></td>
+  <td></td>
+</tr>
+<tr><td>12/11</td><td>Final Exam (2:00-3:50):</td>
+  <td></td>
+  <td>Due: <a href="doc-design.html">Design document</a></td>
+</tr>
+</tbody>
+</table>
+-->
+
+<h2>Spring 2013</h2>
+<p style="font-style:italic;color:red">Note that during the spring, we will not meet on Thursdays
+except occasionally, due to conflicts with the CSCE 231 lab.</p>
+<table class="schedule">
+<tbody>
+<tr><th style="width: 8em">Week</th><th>Topic</th><th>Reading</th><th>Assignment</th></tr>
+<tr><td>2/7</td><td>Thu: Review, reset, begin implementation</td><td></td><td></td></tr>
+<tr><td>2/12-2/14</td><td>Tue: <br />Thu:</td><td></td><td></td></tr>
+<tr><td>2/19-2/21</td><td>Tue: <br />Thu:</td><td></td><td></td></tr>
+<tr><td>2/26-2/28</td><td>Tue: Discussion: GoF Chapter 5<br />Thu: </td><td>GoF Chapter 5</td><td>GoF Review 5.1-5.7</td></tr>
+<tr><td>3/5-3/7</td><td>Tue: Career planning presentation: Catherine Swearingen, PLU Career Connections<br />Thu:</td><td></td><td></td></tr>
+<tr><td>3/12-3/14</td><td>Tue: Tech Presentation 1
+(<a href="tech-presentation1-schedule.html">Schedule</a>)<br />
+Thu: Tech Presentation 1
+(<a href="tech-presentation1-schedule.html">Schedule</a>)</td><td></td><td></td></tr>
+<tr><td>3/19-3/21</td><td>Tue: Discussion: GoF Chapter 6<br />Thu: </td><td>GoF Chapter 6</td><td>GoF Review 6.1-6.7</td></tr>
+<tr><td>3/26-3/28</td><td>Spring break</td><td></td><td></td></tr>
+<tr><td>4/2-4/4</td><td>Tue: Networking, career fairs and salaries: Catherine Swearingen, PLU Career Connections<br />Thu:</td><td></td><td></td></tr>
+<tr><td>4/9-4/11</td><td>Tue: Tech Presentation 2<br />Thu: Tech Presentation 2</td><td></td><td></td></tr>
+<tr><td>4/16-4/18</td><td>Tue: PLU CSCE "Open House"<br />Thu: </td><td>GoF Chapter 7</td><td>GoF Review 7.1-7.5</td></tr>
+<tr><td>4/23-4/25</td><td>Tue: Discussion: GoF Chapter 7<br />Thu:</td><td></td><td></td></tr>
+<tr><td>4/30-5/2</td><td>Tue: <br />Thu: <br /><strong>Academic Festival: May 3-4</strong></td><td></td><td></td></tr>
+<tr><td>5/7-5/9</td><td>Tue: Discussion: GoF Chapter 8-9<br />Thu: </td><td>GoF Chapter 8-9</td><td>GoF Review 8.1-8.6, 9.1-9.4</td></tr>
+<tr><td>5/14-5/16</td><td>Tue: <br />Thu:</td><td></td><td></td></tr>
+<tr><td>5/21</td><td>Final Exam: ETS Exam, Survey (2:00-3:50PM)</td><td></td><td>Final Report</td></tr>
+</tbody>
+</table>
+
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="839"></canvas></html>

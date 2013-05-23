@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Home</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h2>CSCE 499 - Capstone: Senior Seminar</h2>
+
+<p>Capstone for computer science and computer engineering majors 2012-2013.</p>
+
+<ul>
+  <li><b>Professor:</b>  David Wolff</li>
+  <li><b>Class meeting:</b>  Tuesdays and Thursdays at 3:40 PM - 5:25 PM in Rieke #222.</li>
+  <li><b>Class web site:</b> <a href="http://www.cs.plu.edu/499">http://www.cs.plu.edu/499</a></li>
+  <li><b>Class google group:</b>  <a href="https://groups.google.com/a/plu.edu/d/forum/csce499-2012-2013-group?hl=en">https://groups.google.com/a/plu.edu/d/forum/csce499-2012-2013-group?hl=en</a></li>
+</ul>
+
+<p style="font-weight:bold">Important Documents</p>
+
+<ul>
+  <li><a href="requirements.html">Project requirements</a></li>
+  <li><a href="doc-standards.html">Document standards</a></li>
+  <li><a href="doc-requirements.html">Requirements Document (BS)</a>, 
+  <a href="doc-ba-phase1.html">Phase 1 Research Paper (BA)</a></li>
+  <li><a href="presentation-requirements.html">Requirements Presentation</a></li>
+  <li><a href="doc-design.html">Design Document (BS)</a>, 
+  <a href="doc-ba-phase2.html">Phase 2 Research Paper (BA)</a></li>
+  <li><a href="presentation-design.html">Design Presentation</a> 
+  (<a href="design-presentation-schedule.html">schedule</a>)</li>
+  <li>Technical/Progress Presentation 1 
+  (<a href="tech-presentation1-schedule.html">schedule</a>)</li>
+  <li>Technical/Progress Presentation 2
+  (<a href="tech-presentation2-schedule.html">schedule</a>)</li>
+  <li>Academic Festival:
+  (<a href="acfest-schedule.html">schedule (draft)</a>)</li>
+  <li><a href="doc-final.html">Final document requirements</a>
+  (due: May 15th)</li>
+</ul>
+
+<h2>Projects and Groups</h2>
+
+<table>
+<tbody><tr><th>Project/Web Site</th><th>Group Members</th><th>Faculty Mentor</th></tr>
+
+<tr><td><a href="https://github.com/Jessicas-Capstone/Project-Repository">Student Major Assistant</a></td>
+     <td><a href="http://jesscapstoneblog.wordpress.com/">J. Frierson (BSCS)</a></td><td>Blaha</td></tr>
+<tr><td><a href="https://sites.google.com/site/teamdemaciacapstone/">Andriod App for PLU POI</a></td>
+    <td><a href="http://austaindev.blogspot.com/">A. Williams (BSCS)</a>, 
+    <a href="http://geldshot.blogspot.com/search/label/Capstone">T. Jones (BSCS)</a></td><td>Blaha</td></tr>
+
+<tr><td><a href="https://github.com/timshurd/Robo_Arm">Robotic Arm</a></td>
+   <td><a href="http://timsroboticarm.wordpress.com/">T. Hurd</a></td><td>Crocker</td></tr>
+<tr><td><a href="http://code.google.com/p/delving-into-digital-sound/">Digital Audio Storage and Creation</a></td>
+    <td>J. Christensen (BACS), C. Wessel (BACS)</td><td>Crocker</td></tr>
+
+<tr><td><a href="http://code.google.com/p/lutekinduct-capstone/">Virtual Conducting with Kinect</a></td>
+   <td><a href="http://lutekinduct.blogspot.com/">S. Williamson (BSCS)</a></td><td>Murphy</td></tr>
+<tr><td><a href="http://wds-project.github.com/Capstone/index.html">Web-based Strategy AI</a></td>
+  <td><a href="http://wdscapstone.blogspot.com/">J. Polkinghorn (BACS), A. Weber (BSCS)</a></td><td>Murphy</td></tr>
+
+<tr><td><a href="http://biosproject.github.com/biosRepo">BIOS</a></td>
+    <td>D. Case (BSCS), <a href="http://projectbios.github.com/">J. Deines (BSCS)</a>, J. Nelson (BSCS)</td><td>Kakar</td></tr>
+
+<tr><td><a href="http://scanners.github.com/3DScanner/">3D Scanner</a></td>
+  <td><a href="http://barretgm14.wordpress.com/">G. Barrett (BSCS, BSCE)</a>, 
+      <a href="http://jeff3dscanner.blogspot.com/">J. Bishop (BSCS)</a>, 
+      <a href="http://tylergunter.wordpress.com/">T. Gunter (BSCS)</a></td><td>Wolff</td></tr>
+<tr><td><a href="https://github.com/cliffcolon/AutoGen_Webdriver_POs">Auto-Generation of Test Automation Code</a></td>
+  <td><a href="https://github.com/cliffcolon/AutoGen_Webdriver_POs/wiki/Weekly-Progress-Reports">C. Colon (BACS)</a></td><td>Wolff</td></tr>
+
+</tbody></table>
+
+
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="844"></canvas></html>

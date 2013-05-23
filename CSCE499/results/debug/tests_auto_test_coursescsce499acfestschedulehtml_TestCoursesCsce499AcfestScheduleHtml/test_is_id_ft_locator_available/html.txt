@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Academic Festival Schedule</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1>Academic Festival Schedule</h1>
+
+<p style="font-style: italic; color: red">This is a final draft of the schedule, let
+me know immediately if there are any issues.</p>
+
+<h2>Friday, May 3rd</h2>
+<table style="width:auto">
+<tbody><tr><th>Time</th><th>Team</th></tr>
+<tr><td>12:30</td><td>Exploring the Pi: Cloud Based Motion Detection (Daniel Case, Jacob Deines, 
+Joshua Nelson)</td></tr>
+<tr><td>1:00</td><td>Robotic Arm API (Tim Hurd)</td></tr>
+<tr><td>1:30</td><td>Delving into Digital Sound ( John Christensen, Christopher Wessel )</td></tr>
+<tr><td>2:00</td><td>(CSCE 131) LuteBot (Markus Kaelin, Matthew Cruz, Edwin Chan, James Hoffman)</td></tr>
+<tr><td>2:30</td><td>Break: Poster session</td></tr>
+<tr><td>3:30</td><td>(CSCE 131) Electro-Light Piano (Lori Lamm, Jon Julius)</td></tr>
+<tr><td>3:45</td><td>(CSCE 131) Solar Energy Use in Homes (Clarissa Pendleton, Holly Ruyle, Virak Pheng)</td></tr>
+<tr><td>4:05</td><td>(CSCE 131) Acoustic Mechanical Piano (Ryan Page, Tyler Peterson, Zach Evans)</td></tr>
+<tr><td>4:25</td><td>(CSCE 131) The Perfect Dolphin Kick (Cameron Webber, Joseph Parker, Tyler Meade)</td></tr>
+<tr><td>4:45</td><td>(CSCE 131) The Power of the Mind: Applying Commercial EEG (Adam Kohler, Sheyla Trudo)</td></tr>
+</tbody></table>
+
+<h2>Saturday, May 4th</h2>
+<table style="width:auto">
+<tbody><tr><th>Time</th><th>Team</th></tr>
+<tr><td>9:00</td><td>Student Major Assistant: A Web Based Application to Inform
+Students of Course Openings (Jessica Frierson)</td></tr>
+<tr><td>9:30</td><td>Automated Generation of Test Code for Web Applications (Cliff Colon)</td></tr>
+<tr><td>10:00</td><td>Break</td></tr>
+<tr><td>10:15</td><td>PLU Points of Interest:  A Factual Touring Android Application
+for the PLU Campus (Timothy Jones, Austin Williams)</td></tr>
+<tr><td>10:45</td><td>3D Scanner: Obtaining 3D Points Through Image Processing 
+(Grady Barrett, Jeff Bishop, Tyler Gunter)</td></tr>
+<tr><td>11:30</td><td>Break</td></tr>
+<tr><td>11:45</td><td>Galaxy Domination Game with Artificial Intelligence (
+Joshua Polkinghorn, Alana Weber)</td></tr>
+<tr><td>12:30</td><td>Lunch</td></tr>
+<tr><td>1:30</td><td>LuteKinduct: Gesture-Based Musical Conducting with
+Microsoft's Kinect (Sachi Williamson)</td></tr>
+</tbody></table>
+
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="897"></canvas></html>

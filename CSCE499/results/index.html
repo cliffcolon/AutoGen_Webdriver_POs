@@ -1,0 +1,665 @@
+<html>
+  <head>
+    <title>Test Report</title>
+    <style>body {font-family: Helvetica, Arial, sans-serif; font-size: 12px}
+body * {box-sizing: -moz-border-box; box-sizing: -webkit-border-box; box-sizing: border-box}
+a {color: #999}
+h2 {font-size: 16px}
+table {border: 1px solid #e6e6e6; color: #999; font-size: 12px; border-collapse: collapse}
+#configuration tr:nth-child(odd) {background-color: #f6f6f6}
+#results {width:100%}
+th, td {padding: 5px; border: 1px solid #E6E6E6; text-align: left}
+th {font-weight: bold}
+tr.passed, tr.skipped, tr.xfailed, tr.error, tr.failed, tr.xpassed {color: inherit}
+tr.passed + tr.additional {display: none}
+.passed {color: green}
+.skipped, .xfailed {color: orange}
+.error, .failed, .xpassed {color: red}
+.log:only-child {height: inherit}
+.log {background-color: #e6e6e6; border: 1px solid #e6e6e6; color: black; display: block; font-family: "Courier New", Courier, monospace; height: 230px; overflow-y: scroll; padding: 5px; white-space:pre-wrap}
+.screenshot, .video {border: 1px solid #e6e6e6; float:right; height:240px; margin-left:5px; overflow:hidden; width:320px}
+.screenshot img {width: 320px}</style></head>
+  <body>
+    <p>Report generated on 01-May-2013 at 23:23:59 by pytest-mozwebqa 1.0</p>
+    <h2>Configuration</h2>
+    <table id="configuration">
+      <tr>
+        <td>Base URL</td>
+        <td>http://www.cs.plu.edu/courses/csce499/current</td></tr>
+      <tr>
+        <td>Driver</td>
+        <td>firefox</td></tr>
+      <tr>
+        <td>Selenium API</td>
+        <td>webdriver</td></tr>
+      <tr>
+        <td>Selenium Server</td>
+        <td>http://localhost:4444</td></tr>
+      <tr>
+        <td>Timeout</td>
+        <td>60</td></tr></table>
+    <h2>Summary</h2>
+    <p>89 tests ran in 418 seconds.<br/><span class="passed">71 passed</span>, <span class="skipped">0 skipped</span>, <span class="failed">18 failed</span>, <span class="error">1 errors</span>.<br/><span class="skipped">0 expected failures</span>, <span class="failed">0 unexpected passes</span>.</p>
+    <h2>Results</h2>
+    <table id="results">
+      <tr>
+        <th>Result</th>
+        <th>Class</th>
+        <th>Name</th>
+        <th>Duration</th>
+        <th>Links</th></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>7.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>4.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_capstoneindexhtml_TestCapstoneIndexHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/index.html">Failing URL</a> <a href="debug/tests_auto_test_capstoneindexhtml_TestCapstoneIndexHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_capstoneindexhtml_TestCapstoneIndexHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_capstoneindexhtml_TestCapstoneIndexHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_capstoneindexhtml.TestCapstoneIndexHtml instance at 0x8c74dac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c74cec&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CapstoneIndexHtmlpage object: capstoneindexhtml.py<br/>            """<br/>        page = CapstoneIndexHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_capstoneindexhtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>4.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>5.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499acfestschedulehtml_TestCoursesCsce499AcfestScheduleHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/acfest-schedule.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499acfestschedulehtml_TestCoursesCsce499AcfestScheduleHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499acfestschedulehtml_TestCoursesCsce499AcfestScheduleHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499acfestschedulehtml_TestCoursesCsce499AcfestScheduleHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499acfestschedulehtml.TestCoursesCsce499AcfestScheduleHtml instance at 0x8c89eac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c8652c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499AcfestScheduleHtmlpage object: coursescsce499acfestschedulehtml.py<br/>            """<br/>        page = CoursesCsce499AcfestScheduleHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499acfestschedulehtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>4.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>3.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499designpresentationschedulehtml_TestCoursesCsce499DesignPresentationScheduleHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/design-presentation-schedule.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499designpresentationschedulehtml_TestCoursesCsce499DesignPresentationScheduleHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499designpresentationschedulehtml_TestCoursesCsce499DesignPresentationScheduleHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499designpresentationschedulehtml_TestCoursesCsce499DesignPresentationScheduleHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499designpresentationschedulehtml.TestCoursesCsce499DesignPresentationScheduleHtml instance at 0x8c966cc&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c96d2c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DesignPresentationScheduleHtmlpage object: coursescsce499designpresentationschedulehtml.py<br/>            """<br/>        page = CoursesCsce499DesignPresentationScheduleHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499designpresentationschedulehtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docbaphase1html_TestCoursesCsce499DocBaPhase1Html/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-ba-phase1.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docbaphase1html_TestCoursesCsce499DocBaPhase1Html/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docbaphase1html_TestCoursesCsce499DocBaPhase1Html/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docbaphase1html_TestCoursesCsce499DocBaPhase1Html/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docbaphase1html.TestCoursesCsce499DocBaPhase1Html instance at 0x8c1b6ac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c1ba6c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocBaPhase1Htmlpage object: coursescsce499docbaphase1html.py<br/>            """<br/>        page = CoursesCsce499DocBaPhase1Html(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docbaphase1html.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docbaphase2html_TestCoursesCsce499DocBaPhase2Html/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-ba-phase2.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docbaphase2html_TestCoursesCsce499DocBaPhase2Html/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docbaphase2html_TestCoursesCsce499DocBaPhase2Html/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docbaphase2html_TestCoursesCsce499DocBaPhase2Html/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docbaphase2html.TestCoursesCsce499DocBaPhase2Html instance at 0x8e64fec&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8e6458c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocBaPhase2Htmlpage object: coursescsce499docbaphase2html.py<br/>            """<br/>        page = CoursesCsce499DocBaPhase2Html(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docbaphase2html.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>1.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docdesignhtml_TestCoursesCsce499DocDesignHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-design.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docdesignhtml_TestCoursesCsce499DocDesignHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docdesignhtml_TestCoursesCsce499DocDesignHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docdesignhtml_TestCoursesCsce499DocDesignHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docdesignhtml.TestCoursesCsce499DocDesignHtml instance at 0x8e6e1ac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8e6ee6c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocDesignHtmlpage object: coursescsce499docdesignhtml.py<br/>            """<br/>        page = CoursesCsce499DocDesignHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docdesignhtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docfinalhtml_TestCoursesCsce499DocFinalHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-final.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docfinalhtml_TestCoursesCsce499DocFinalHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docfinalhtml_TestCoursesCsce499DocFinalHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docfinalhtml_TestCoursesCsce499DocFinalHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docfinalhtml.TestCoursesCsce499DocFinalHtml instance at 0x8e926ac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8e92f2c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocFinalHtmlpage object: coursescsce499docfinalhtml.py<br/>            """<br/>        page = CoursesCsce499DocFinalHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docfinalhtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>2.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docrequirementshtml_TestCoursesCsce499DocRequirementsHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-requirements.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docrequirementshtml_TestCoursesCsce499DocRequirementsHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docrequirementshtml_TestCoursesCsce499DocRequirementsHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docrequirementshtml_TestCoursesCsce499DocRequirementsHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docrequirementshtml.TestCoursesCsce499DocRequirementsHtml instance at 0x8fb1dac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8fb1d6c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocRequirementsHtmlpage object: coursescsce499docrequirementshtml.py<br/>            """<br/>        page = CoursesCsce499DocRequirementsHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docrequirementshtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>3.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499docstandardshtml_TestCoursesCsce499DocStandardsHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/doc-standards.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499docstandardshtml_TestCoursesCsce499DocStandardsHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499docstandardshtml_TestCoursesCsce499DocStandardsHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499docstandardshtml_TestCoursesCsce499DocStandardsHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499docstandardshtml.TestCoursesCsce499DocStandardsHtml instance at 0x8c9f84c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c9f54c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499DocStandardsHtmlpage object: coursescsce499docstandardshtml.py<br/>            """<br/>        page = CoursesCsce499DocStandardsHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499docstandardshtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>7.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499indexhtml_TestCoursesCsce499IndexHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/index.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499indexhtml_TestCoursesCsce499IndexHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499indexhtml_TestCoursesCsce499IndexHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499indexhtml_TestCoursesCsce499IndexHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499indexhtml.TestCoursesCsce499IndexHtml instance at 0x8fbf6cc&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8fbf98c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499IndexHtmlpage object: coursescsce499indexhtml.py<br/>            """<br/>        page = CoursesCsce499IndexHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499indexhtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="error">
+        <td class="error">Error</td>
+        <td>tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>15.0</td>
+        <td></td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="log">item = &lt;Function 'test_is_id_bd_locator_available'&gt;<br/><br/>    def pytest_runtest_setup(item):<br/>        item.debug = {<br/>            'urls': [],<br/>            'screenshots': [],<br/>            'html': [],<br/>            'logs': [],<br/>            'network_traffic': []}<br/>        TestSetup.base_url = item.config.option.base_url<br/>    <br/>        # consider this environment sensitive if the base url or any redirection<br/>        # history matches the regular expression<br/>        sensitive = False<br/>        if TestSetup.base_url:<br/>&gt;           r = requests.get(TestSetup.base_url, verify=False)<br/><br/>/usr/local/lib/python2.7/dist-packages/pytest_mozwebqa/pytest_mozwebqa.py:64: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>url = 'http://www.cs.plu.edu/courses/csce499/current'<br/>kwargs = {'allow_redirects': True, 'verify': False}<br/><br/>    def get(url, **kwargs):<br/>        """Sends a GET request. Returns :class:`Response` object.<br/>    <br/>        :param url: URL for the new :class:`Request` object.<br/>        :param \*\*kwargs: Optional arguments that ``request`` takes.<br/>        """<br/>    <br/>        kwargs.setdefault('allow_redirects', True)<br/>&gt;       return request('get', url, **kwargs)<br/><br/>/usr/local/lib/python2.7/dist-packages/requests/api.py:55: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>method = 'get', url = 'http://www.cs.plu.edu/courses/csce499/current'<br/>kwargs = {'allow_redirects': True, 'verify': False}<br/>session = &lt;requests.sessions.Session object at 0x8c76fec&gt;<br/><br/>    def request(method, url, **kwargs):<br/>        """Constructs and sends a :class:`Request &lt;Request&gt;`.<br/>        Returns :class:`Response &lt;Response&gt;` object.<br/>    <br/>        :param method: method for the new :class:`Request` object.<br/>        :param url: URL for the new :class:`Request` object.<br/>        :param params: (optional) Dictionary or bytes to be sent in the query string for the :class:`Request`.<br/>        :param data: (optional) Dictionary, bytes, or file-like object to send in the body of the :class:`Request`.<br/>        :param headers: (optional) Dictionary of HTTP Headers to send with the :class:`Request`.<br/>        :param cookies: (optional) Dict or CookieJar object to send with the :class:`Request`.<br/>        :param files: (optional) Dictionary of 'name': file-like-objects (or {'name': ('filename', fileobj)}) for multipart encoding upload.<br/>        :param auth: (optional) Auth tuple to enable Basic/Digest/Custom HTTP Auth.<br/>        :param timeout: (optional) Float describing the timeout of the request.<br/>        :param allow_redirects: (optional) Boolean. Set to True if POST/PUT/DELETE redirect following is allowed.<br/>        :param proxies: (optional) Dictionary mapping protocol to the URL of the proxy.<br/>        :param verify: (optional) if ``True``, the SSL cert will be verified. A CA_BUNDLE path can also be provided.<br/>        :param stream: (optional) if ``False``, the response content will be immediately downloaded.<br/>        :param cert: (optional) if String, path to ssl client cert file (.pem). If Tuple, ('cert', 'key') pair.<br/>    <br/>        Usage::<br/>    <br/>          &gt;&gt;&gt; import requests<br/>          &gt;&gt;&gt; req = requests.request('GET', 'http://httpbin.org/get')<br/>          &lt;Response [200]&gt;<br/>        """<br/>    <br/>        session = sessions.Session()<br/>&gt;       return session.request(method=method, url=url, **kwargs)<br/><br/>/usr/local/lib/python2.7/dist-packages/requests/api.py:44: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;requests.sessions.Session object at 0x8c76fec&gt;, method = 'get'<br/>url = 'http://www.cs.plu.edu/courses/csce499/current', params = {}, data = None<br/>headers = {'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate, compress', 'User-Agent': 'python-requests/1.2.0 CPython/2.7.3 Linux/3.2.0-29-generic-pae'}<br/>cookies = &lt;&lt;class 'requests.cookies.RequestsCookieJar'&gt;[]&gt;, files = None<br/>auth = None, timeout = None, allow_redirects = True, proxies = OrderedDict()<br/>hooks = {'response': []}, stream = False, verify = False, cert = None<br/><br/>    def request(self, method, url,<br/>        params=None,<br/>        data=None,<br/>        headers=None,<br/>        cookies=None,<br/>        files=None,<br/>        auth=None,<br/>        timeout=None,<br/>        allow_redirects=True,<br/>        proxies=None,<br/>        hooks=None,<br/>        stream=None,<br/>        verify=None,<br/>        cert=None):<br/>        """Constructs a :class:`Request &lt;Request&gt;`, prepares it and sends it.<br/>            Returns :class:`Response &lt;Response&gt;` object.<br/>    <br/>            :param method: method for the new :class:`Request` object.<br/>            :param url: URL for the new :class:`Request` object.<br/>            :param params: (optional) Dictionary or bytes to be sent in the query<br/>                string for the :class:`Request`.<br/>            :param data: (optional) Dictionary or bytes to send in the body of the<br/>                :class:`Request`.<br/>            :param headers: (optional) Dictionary of HTTP Headers to send with the<br/>                :class:`Request`.<br/>            :param cookies: (optional) Dict or CookieJar object to send with the<br/>                :class:`Request`.<br/>            :param files: (optional) Dictionary of 'filename': file-like-objects<br/>                for multipart encoding upload.<br/>            :param auth: (optional) Auth tuple or callable to enable<br/>                Basic/Digest/Custom HTTP Auth.<br/>            :param timeout: (optional) Float describing the timeout of the<br/>                request.<br/>            :param allow_redirects: (optional) Boolean. Set to True by default.<br/>            :param proxies: (optional) Dictionary mapping protocol to the URL of<br/>                the proxy.<br/>            :param return_response: (optional) If False, an un-sent Request object<br/>                will returned.<br/>            :param config: (optional) A configuration dictionary. See<br/>                ``request.defaults`` for allowed keys and their default values.<br/>            :param prefetch: (optional) whether to immediately download the response<br/>                content. Defaults to ``True``.<br/>            :param verify: (optional) if ``True``, the SSL cert will be verified.<br/>                A CA_BUNDLE path can also be provided.<br/>            :param cert: (optional) if String, path to ssl client cert file (.pem).<br/>                If Tuple, ('cert', 'key') pair.<br/>            """<br/>    <br/>        cookies = cookies or {}<br/>        proxies = proxies or {}<br/>    <br/>        # Bootstrap CookieJar.<br/>        if not isinstance(cookies, cookielib.CookieJar):<br/>            cookies = cookiejar_from_dict(cookies)<br/>    <br/>        # Merge with session cookies<br/>        merged_cookies = self.cookies.copy()<br/>        merged_cookies.update(cookies)<br/>        cookies = merged_cookies<br/>    <br/>        # Gather clues from the surrounding environment.<br/>        if self.trust_env:<br/>            # Set environment's proxies.<br/>            env_proxies = get_environ_proxies(url) or {}<br/>            for (k, v) in env_proxies.items():<br/>                proxies.setdefault(k, v)<br/>    <br/>            # Set environment's basic authentication.<br/>            if not auth:<br/>                auth = get_netrc_auth(url)<br/>    <br/>            # Look for configuration.<br/>            if not verify and verify is not False:<br/>                verify = os.environ.get('REQUESTS_CA_BUNDLE')<br/>    <br/>            # Curl compatibility.<br/>            if not verify and verify is not False:<br/>                verify = os.environ.get('CURL_CA_BUNDLE')<br/>    <br/>        # Merge all the kwargs.<br/>        params = merge_kwargs(params, self.params)<br/>        headers = merge_kwargs(headers, self.headers)<br/>        auth = merge_kwargs(auth, self.auth)<br/>        proxies = merge_kwargs(proxies, self.proxies)<br/>        hooks = merge_kwargs(hooks, self.hooks)<br/>        stream = merge_kwargs(stream, self.stream)<br/>        verify = merge_kwargs(verify, self.verify)<br/>        cert = merge_kwargs(cert, self.cert)<br/>    <br/>        # Create the Request.<br/>        req = Request()<br/>        req.method = method.upper()<br/>        req.url = url<br/>        req.headers = headers<br/>        req.files = files<br/>        req.data = data<br/>        req.params = params<br/>        req.auth = auth<br/>        req.cookies = cookies<br/>        req.hooks = hooks<br/>    <br/>        # Prepare the Request.<br/>        prep = req.prepare()<br/>    <br/>        # Send the request.<br/>        send_kwargs = {<br/>            'stream': stream,<br/>            'timeout': timeout,<br/>            'verify': verify,<br/>            'cert': cert,<br/>            'proxies': proxies,<br/>            'allow_redirects': allow_redirects,<br/>        }<br/>&gt;       resp = self.send(prep, **send_kwargs)<br/><br/>/usr/local/lib/python2.7/dist-packages/requests/sessions.py:354: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;requests.sessions.Session object at 0x8c76fec&gt;<br/>request = &lt;PreparedRequest [GET]&gt;<br/>kwargs = {'cert': None, 'proxies': OrderedDict(), 'stream': False, 'timeout': None, ...}<br/>allow_redirects = True, stream = False, timeout = None, verify = False<br/>cert = None, proxies = OrderedDict(), hooks = {'response': []}<br/><br/>    def send(self, request, **kwargs):<br/>        """Send a given PreparedRequest."""<br/>        # Set defaults that the hooks can utilize to ensure they always have<br/>        # the correct parameters to reproduce the previous request.<br/>        kwargs.setdefault('stream', self.stream)<br/>        kwargs.setdefault('verify', self.verify)<br/>        kwargs.setdefault('cert', self.cert)<br/>        kwargs.setdefault('proxies', self.proxies)<br/>    <br/>        # It's possible that users might accidentally send a Request object.<br/>        # Guard against that specific failure case.<br/>        if getattr(request, 'prepare', None):<br/>            raise ValueError('You can only send PreparedRequests.')<br/>    <br/>        # Set up variables needed for resolve_redirects and dispatching of<br/>        # hooks<br/>        allow_redirects = kwargs.pop('allow_redirects', True)<br/>        stream = kwargs.get('stream')<br/>        timeout = kwargs.get('timeout')<br/>        verify = kwargs.get('verify')<br/>        cert = kwargs.get('cert')<br/>        proxies = kwargs.get('proxies')<br/>        hooks = request.hooks<br/>    <br/>        # Get the appropriate adapter to use<br/>        adapter = self.get_adapter(url=request.url)<br/>    <br/>        # Start time (approximately) of the request<br/>        start = datetime.utcnow()<br/>        # Send the request<br/>&gt;       r = adapter.send(request, **kwargs)<br/><br/>/usr/local/lib/python2.7/dist-packages/requests/sessions.py:460: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;requests.adapters.HTTPAdapter object at 0x8c761ac&gt;<br/>request = &lt;PreparedRequest [GET]&gt;, stream = False, timeout = None<br/>verify = False, cert = None, proxies = OrderedDict()<br/><br/>    def send(self, request, stream=False, timeout=None, verify=True, cert=None, proxies=None):<br/>        """Sends PreparedRequest object. Returns Response object."""<br/>    <br/>        conn = self.get_connection(request.url, proxies)<br/>    <br/>        self.cert_verify(conn, request.url, verify, cert)<br/>        url = self.request_url(request, proxies)<br/>        self.add_headers(request, proxies=proxies)<br/>    <br/>        chunked = not (request.body is None or 'Content-Length' in request.headers)<br/>    <br/>        try:<br/>            if not chunked:<br/>                resp = conn.urlopen(<br/>                    method=request.method,<br/>                    url=url,<br/>                    body=request.body,<br/>                    headers=request.headers,<br/>                    redirect=False,<br/>                    assert_same_host=False,<br/>                    preload_content=False,<br/>                    decode_content=False,<br/>                    retries=self.max_retries,<br/>                    timeout=timeout<br/>                )<br/>    <br/>            # Send the request.<br/>            else:<br/>                if hasattr(conn, 'proxy_pool'):<br/>                    conn = conn.proxy_pool<br/>    <br/>                low_conn = conn._get_conn(timeout=timeout)<br/>                low_conn.putrequest(request.method, url, skip_accept_encoding=True)<br/>    <br/>                for header, value in request.headers.items():<br/>                    low_conn.putheader(header, value)<br/>    <br/>                low_conn.endheaders()<br/>    <br/>                for i in request.body:<br/>                    low_conn.send(hex(len(i))[2:].encode('utf-8'))<br/>                    low_conn.send(b'\r\n')<br/>                    low_conn.send(i)<br/>                    low_conn.send(b'\r\n')<br/>                low_conn.send(b'0\r\n\r\n')<br/>    <br/>                r = low_conn.getresponse()<br/>                resp = HTTPResponse.from_httplib(r,<br/>                    pool=conn,<br/>                    connection=low_conn,<br/>                    preload_content=False,<br/>                    decode_content=False<br/>                )<br/>    <br/>        except socket.error as sockerr:<br/>            raise ConnectionError(sockerr)<br/>    <br/>        except MaxRetryError as e:<br/>&gt;           raise ConnectionError(e)<br/><span class="error">E           ConnectionError: HTTPConnectionPool(host='www.cs.plu.edu', port=80): Max retries exceeded with url: /courses/csce499/current (Caused by &lt;class 'socket.gaierror'&gt;: [Errno -2] Name or service not known)</span><br/><br/>/usr/local/lib/python2.7/dist-packages/requests/adapters.py:246: ConnectionError<br/></div></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>6.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499presentationdesignhtml_TestCoursesCsce499PresentationDesignHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/presentation-design.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499presentationdesignhtml_TestCoursesCsce499PresentationDesignHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499presentationdesignhtml_TestCoursesCsce499PresentationDesignHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499presentationdesignhtml_TestCoursesCsce499PresentationDesignHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499presentationdesignhtml.TestCoursesCsce499PresentationDesignHtml instance at 0x8b129ac&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8b121ac&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499PresentationDesignHtmlpage object: coursescsce499presentationdesignhtml.py<br/>            """<br/>        page = CoursesCsce499PresentationDesignHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499presentationdesignhtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>4.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>5.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499presentationrequirementshtml_TestCoursesCsce499PresentationRequirementsHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/presentation-requirements.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499presentationrequirementshtml_TestCoursesCsce499PresentationRequirementsHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499presentationrequirementshtml_TestCoursesCsce499PresentationRequirementsHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499presentationrequirementshtml_TestCoursesCsce499PresentationRequirementsHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499presentationrequirementshtml.TestCoursesCsce499PresentationRequirementsHtml instance at 0x9124f4c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x9124e0c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499PresentationRequirementsHtmlpage object: coursescsce499presentationrequirementshtml.py<br/>            """<br/>        page = CoursesCsce499PresentationRequirementsHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499presentationrequirementshtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499requirementshtml_TestCoursesCsce499RequirementsHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/requirements.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499requirementshtml_TestCoursesCsce499RequirementsHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499requirementshtml_TestCoursesCsce499RequirementsHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499requirementshtml_TestCoursesCsce499RequirementsHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499requirementshtml.TestCoursesCsce499RequirementsHtml instance at 0x8beffcc&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8c7ec6c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499RequirementsHtmlpage object: coursescsce499requirementshtml.py<br/>            """<br/>        page = CoursesCsce499RequirementsHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499requirementshtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499resourceshtml_TestCoursesCsce499ResourcesHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/resources.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499resourceshtml_TestCoursesCsce499ResourcesHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499resourceshtml_TestCoursesCsce499ResourcesHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499resourceshtml_TestCoursesCsce499ResourcesHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499resourceshtml.TestCoursesCsce499ResourcesHtml instance at 0x9218c4c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x9218e4c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499ResourcesHtmlpage object: coursescsce499resourceshtml.py<br/>            """<br/>        page = CoursesCsce499ResourcesHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499resourceshtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>1.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499schedulehtml_TestCoursesCsce499ScheduleHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/schedule.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499schedulehtml_TestCoursesCsce499ScheduleHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499schedulehtml_TestCoursesCsce499ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499schedulehtml_TestCoursesCsce499ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499schedulehtml.TestCoursesCsce499ScheduleHtml instance at 0x8e6492c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x8e64f4c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499ScheduleHtmlpage object: coursescsce499schedulehtml.py<br/>            """<br/>        page = CoursesCsce499ScheduleHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499schedulehtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>0.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499syllabushtml_TestCoursesCsce499SyllabusHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/syllabus.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499syllabushtml_TestCoursesCsce499SyllabusHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499syllabushtml_TestCoursesCsce499SyllabusHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499syllabushtml_TestCoursesCsce499SyllabusHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499syllabushtml.TestCoursesCsce499SyllabusHtml instance at 0x921e28c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x921eb6c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499SyllabusHtmlpage object: coursescsce499syllabushtml.py<br/>            """<br/>        page = CoursesCsce499SyllabusHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499syllabushtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>4.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499techpresentation1schedulehtml_TestCoursesCsce499TechPresentation1ScheduleHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/tech-presentation1-schedule.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499techpresentation1schedulehtml_TestCoursesCsce499TechPresentation1ScheduleHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499techpresentation1schedulehtml_TestCoursesCsce499TechPresentation1ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499techpresentation1schedulehtml_TestCoursesCsce499TechPresentation1ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499techpresentation1schedulehtml.TestCoursesCsce499TechPresentation1ScheduleHtml instance at 0x913788c&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x90ffd4c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499TechPresentation1ScheduleHtmlpage object: coursescsce499techpresentation1schedulehtml.py<br/>            """<br/>        page = CoursesCsce499TechPresentation1ScheduleHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499techpresentation1schedulehtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml</td>
+        <td>test_is_id_banner_top_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml</td>
+        <td>test_is_id_nav_locator_available</td>
+        <td>4.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml</td>
+        <td>test_is_id_main_content_locator_available</td>
+        <td>0.0</td>
+        <td></td></tr>
+      <tr class="passed">
+        <td class="passed">Passed</td>
+        <td>tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml</td>
+        <td>test_is_id_bd_locator_available</td>
+        <td>3.0</td>
+        <td></td></tr>
+      <tr class="failed">
+        <td class="failed">Failed</td>
+        <td>tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml</td>
+        <td>test_is_id_ft_locator_available</td>
+        <td>4.0</td>
+        <td><a href="debug/tests_auto_test_coursescsce499techpresentation2schedulehtml_TestCoursesCsce499TechPresentation2ScheduleHtml/test_is_id_ft_locator_available/html.txt">HTML</a> <a href="http://www.cs.plu.edu/courses/csce499/current/tech-presentation2-schedule.html">Failing URL</a> <a href="debug/tests_auto_test_coursescsce499techpresentation2schedulehtml_TestCoursesCsce499TechPresentation2ScheduleHtml/test_is_id_ft_locator_available/screenshot.png">Screenshot</a> </td></tr>
+      <tr>
+        <td colspan="5">
+          <div class="screenshot"><a href="debug/tests_auto_test_coursescsce499techpresentation2schedulehtml_TestCoursesCsce499TechPresentation2ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"><img src="debug/tests_auto_test_coursescsce499techpresentation2schedulehtml_TestCoursesCsce499TechPresentation2ScheduleHtml/test_is_id_ft_locator_available/screenshot.png"/></a></div>
+          <div class="log">self = &lt;tests.auto.test_coursescsce499techpresentation2schedulehtml.TestCoursesCsce499TechPresentation2ScheduleHtml instance at 0x92420cc&gt;<br/>mozwebqa = &lt;pytest_mozwebqa.pytest_mozwebqa.TestSetup instance at 0x924288c&gt;<br/><br/>    @pytest.mark.nondestructive<br/>    def test_is_id_ft_locator_available(self, mozwebqa):<br/>    <br/>        """<br/>            Test pages elements defined in CoursesCsce499TechPresentation2ScheduleHtmlpage object: coursescsce499techpresentation2schedulehtml.py<br/>            """<br/>        page = CoursesCsce499TechPresentation2ScheduleHtml(mozwebqa)<br/>&gt;       Assert.true(page.is_id_ft_locator_available)<br/><br/>tests/auto/test_coursescsce499techpresentation2schedulehtml.py:54: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;class unittestzero.Assert at 0x8b0c83c&gt;, first = False, msg = None<br/><br/>    @classmethod<br/>    def true(self, first, msg=None):<br/>        """<br/>            Asserts that what is given is equal to True<br/>    <br/>            :Args:<br/>             - First object to be tested<br/>             - Message that will be printed if it fails<br/>            """<br/>    <br/>&gt;       assert bool(first) is True, msg<br/><span class="error">E       AssertionError: None</span><br/><br/>/usr/local/lib/python2.7/dist-packages/unittestzero.py:77: AssertionError<br/></div></td></tr></table></body></html>

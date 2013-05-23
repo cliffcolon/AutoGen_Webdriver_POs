@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Design Presentation Schedule</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1>Tech Presentation 1 Schedule</h1>
+
+<table>
+
+<tbody><tr><th>Time</th><th>Tuesday (3/12)</th><th>Thursday (3/14)</th></tr>
+<tr><td>3:45-4:05</td><td>BIOS</td><td>3D Scan</td></tr>
+<tr><td>4:05-4:25</td><td>Web-based Strategy Game</td><td>Auto-Gen Test Code</td></tr>
+<tr><td>4:25-4:45</td><td>Virtual Conducting</td><td>Digital Audio</td></tr>
+<tr><td>4:45-5:05</td><td>Student Major Asst.</td><td>Robotic Arm</td></tr>
+<tr><td>5:05-5:25</td><td>Andriod App</td><td></td></tr>	
+
+</tbody></table>
+
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="994" height="625"></canvas></html>

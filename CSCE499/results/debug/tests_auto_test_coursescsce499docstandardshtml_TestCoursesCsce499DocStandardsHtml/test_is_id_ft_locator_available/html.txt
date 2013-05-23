@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Document Standards</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499__document_standards">CSCE 499 - Document Standards</h1>
+
+<p>It is quite common that a company or other organization will have strict standards for internal documentation. Academic publications such as the ACM journals also have standards of their own. For this course, you are asked to turn in documents that have at a minimum, the following characteristics.</p>
+
+<ul>
+<li>Title Matter (possibly on a separate page) - must include the following: Document type (Requirements, Proposal, Mid-Term Report, Final Report, etc. ) followed by a colon, followed by the project title; the authors and their degrees (BA/BS in CS/CE); the faculty mentor’s name; and the semester and year. For documents other than the proposal, this should be on a separate page.</li>
+
+<li>All pages must be numbered.</li>
+
+<li>Table of contents (except for the proposal).</li>
+
+<li>List of figures (except for the proposal).</li>
+
+<li>Figures must be captioned and numbered.</li>
+
+<li>Sections and subsections must be numbered, e.g. 1, 2, 3,.. for sections 1.1, 1.2, 2.1, etc. for subsections.</li>
+
+<li>All documents must include a References section (bibliography), except for the proposal.</li>
+
+<li>The References section must use a bibliography style as is used in an IEEE or ACM journal. If using BibTeX, one should use either the acm style or the ieeetr style. Every reference must be cited at least once within the text of the report.</li>
+
+<li>No spelling or grammar errors (have someone proof your document).</li>
+
+<li>Prefer the active voice over the passive voice.</li>
+
+<li>Document should be easy to read, yet technically complete.</li>
+
+<li>It must be understandable to a person with a similar education level (college degree in CS/CE), and should be complete enough so that the reader can duplicate your project without any guess-work.</li>
+
+<li>No hand-written elements anywhere.</li>
+
+<li>Use the Appendix in Pfeiffer’s <em>Pocket Guide to Technical Communication</em> for guidelines and help with style, grammar, and usage.</li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="994" height="625"></canvas></html>

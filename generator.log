@@ -1,0 +1,1434 @@
+INFO:root:Starting auto-generator
+DEBUG:root:Initializing variables
+DEBUG:root:Initializing new framework
+DEBUG:root:Create subdirectories for new framework
+DEBUG:root:Coping all prerequisite files to new framework
+INFO:root:Destination Directory: CSCE499
+DEBUG:root:Configuring MOZWEBQA.CFG
+DEBUG:root:Get Links
+INFO:root:http://www.cs.plu.edu/courses/csce499/index.html
+DEBUG:root:Create class name Courses_Csce499_Index_Html
+DEBUG:root:Courses_Csce499_Index_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_index_html
+DEBUG:root:FILENAME: CoursesCsce499IndexHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: index.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499IndexHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/syllabus.html
+DEBUG:root:Create class name Courses_Csce499_Syllabus_Html
+DEBUG:root:Courses_Csce499_Syllabus_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_syllabus_html
+DEBUG:root:FILENAME: CoursesCsce499SyllabusHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: syllabus.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499SyllabusHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/schedule.html
+DEBUG:root:Create class name Courses_Csce499_Schedule_Html
+DEBUG:root:Courses_Csce499_Schedule_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_schedule_html
+DEBUG:root:FILENAME: CoursesCsce499ScheduleHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: schedule.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499ScheduleHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/resources.html
+DEBUG:root:Create class name Courses_Csce499_Resources_Html
+DEBUG:root:Courses_Csce499_Resources_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_resources_html
+DEBUG:root:FILENAME: CoursesCsce499ResourcesHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: resources.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499ResourcesHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/499
+DEBUG:root:Create class name 499
+DEBUG:root:499Not Found
+DEBUG:root:Scraping page
+DEBUG:root:Class name cannot start with a digit
+DEBUG:root:URL: c499
+DEBUG:root:FILENAME: c499
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: 499
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating c499 test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:https://groups.google.com/a/plu.edu/d/forum/csce499-2012-2013-group?hl=en
+DEBUG:root:Create class name A_Plu_Edu_D_Forum_Csce499_2012_2013_Group
+DEBUG:root:A_Plu_Edu_D_Forum_Csce499_2012_2013_GroupNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: a_plu_edu_d_forum_csce499_2012_2013_group
+DEBUG:root:FILENAME: APluEduDForumCsce49920122013Group
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: csce499-2012-2013-group
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating APluEduDForumCsce49920122013Group test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/requirements.html
+DEBUG:root:Create class name Courses_Csce499_Requirements_Html
+DEBUG:root:Courses_Csce499_Requirements_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_requirements_html
+DEBUG:root:FILENAME: CoursesCsce499RequirementsHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: requirements.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499RequirementsHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-standards.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Standards_Html
+DEBUG:root:Courses_Csce499_Doc_Standards_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_standards_html
+DEBUG:root:FILENAME: CoursesCsce499DocStandardsHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-standards.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocStandardsHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-requirements.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Requirements_Html
+DEBUG:root:Courses_Csce499_Doc_Requirements_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_requirements_html
+DEBUG:root:FILENAME: CoursesCsce499DocRequirementsHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-requirements.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocRequirementsHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-ba-phase1.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Ba_Phase1_Html
+DEBUG:root:Courses_Csce499_Doc_Ba_Phase1_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_ba_phase1_html
+DEBUG:root:FILENAME: CoursesCsce499DocBaPhase1Html
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-ba-phase1.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocBaPhase1Html test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/presentation-requirements.html
+DEBUG:root:Create class name Courses_Csce499_Presentation_Requirements_Html
+DEBUG:root:Courses_Csce499_Presentation_Requirements_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_presentation_requirements_html
+DEBUG:root:FILENAME: CoursesCsce499PresentationRequirementsHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: presentation-requirements.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499PresentationRequirementsHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-design.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Design_Html
+DEBUG:root:Courses_Csce499_Doc_Design_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_design_html
+DEBUG:root:FILENAME: CoursesCsce499DocDesignHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-design.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocDesignHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-ba-phase2.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Ba_Phase2_Html
+DEBUG:root:Courses_Csce499_Doc_Ba_Phase2_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_ba_phase2_html
+DEBUG:root:FILENAME: CoursesCsce499DocBaPhase2Html
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-ba-phase2.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocBaPhase2Html test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/presentation-design.html
+DEBUG:root:Create class name Courses_Csce499_Presentation_Design_Html
+DEBUG:root:Courses_Csce499_Presentation_Design_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_presentation_design_html
+DEBUG:root:FILENAME: CoursesCsce499PresentationDesignHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: presentation-design.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499PresentationDesignHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/design-presentation-schedule.html
+DEBUG:root:Create class name Courses_Csce499_Design_Presentation_Schedule_Html
+DEBUG:root:Courses_Csce499_Design_Presentation_Schedule_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_design_presentation_schedule_html
+DEBUG:root:FILENAME: CoursesCsce499DesignPresentationScheduleHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: design-presentation-schedule.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DesignPresentationScheduleHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/tech-presentation1-schedule.html
+DEBUG:root:Create class name Courses_Csce499_Tech_Presentation1_Schedule_Html
+DEBUG:root:Courses_Csce499_Tech_Presentation1_Schedule_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_tech_presentation1_schedule_html
+DEBUG:root:FILENAME: CoursesCsce499TechPresentation1ScheduleHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: tech-presentation1-schedule.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499TechPresentation1ScheduleHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/tech-presentation2-schedule.html
+DEBUG:root:Create class name Courses_Csce499_Tech_Presentation2_Schedule_Html
+DEBUG:root:Courses_Csce499_Tech_Presentation2_Schedule_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_tech_presentation2_schedule_html
+DEBUG:root:FILENAME: CoursesCsce499TechPresentation2ScheduleHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: tech-presentation2-schedule.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499TechPresentation2ScheduleHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/acfest-schedule.html
+DEBUG:root:Create class name Courses_Csce499_Acfest_Schedule_Html
+DEBUG:root:Courses_Csce499_Acfest_Schedule_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_acfest_schedule_html
+DEBUG:root:FILENAME: CoursesCsce499AcfestScheduleHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: acfest-schedule.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499AcfestScheduleHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://www.cs.plu.edu/courses/csce499/doc-final.html
+DEBUG:root:Create class name Courses_Csce499_Doc_Final_Html
+DEBUG:root:Courses_Csce499_Doc_Final_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: courses_csce499_doc_final_html
+DEBUG:root:FILENAME: CoursesCsce499DocFinalHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: doc-final.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CoursesCsce499DocFinalHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:https://github.com/Jessicas-Capstone/Project-Repository
+DEBUG:root:Create class name Jessicas_Capstone_Project_Repository
+DEBUG:root:Jessicas_Capstone_Project_RepositoryNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: Jessicas_Capstone_Project_Repository
+DEBUG:root:FILENAME: JessicasCapstoneProjectRepository
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: Project-Repository
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating JessicasCapstoneProjectRepository test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://jesscapstoneblog.wordpress.com/
+DEBUG:root:Create class name 
+INFO:root:https://sites.google.com/site/teamdemaciacapstone/
+DEBUG:root:Create class name Site_Teamdemaciacapstone
+DEBUG:root:Site_TeamdemaciacapstoneNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: site_teamdemaciacapstone
+DEBUG:root:FILENAME: SiteTeamdemaciacapstone
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: 
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating SiteTeamdemaciacapstone test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://austaindev.blogspot.com/
+DEBUG:root:Create class name 
+INFO:root:http://geldshot.blogspot.com/search/label/Capstone
+DEBUG:root:Create class name Search_Label_Capstone
+DEBUG:root:Search_Label_CapstoneNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: search_label_Capstone
+DEBUG:root:FILENAME: SearchLabelCapstone
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: Capstone
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating SearchLabelCapstone test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:https://github.com/timshurd/Robo_Arm
+DEBUG:root:Create class name Timshurd_Robo_Arm
+DEBUG:root:Timshurd_Robo_ArmNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: timshurd_Robo_Arm
+DEBUG:root:FILENAME: TimshurdRoboArm
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: Robo_Arm
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating TimshurdRoboArm test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://timsroboticarm.wordpress.com/
+DEBUG:root:Create class name 
+INFO:root:http://code.google.com/p/delving-into-digital-sound/
+DEBUG:root:Create class name P_Delving_Into_Digital_Sound
+DEBUG:root:P_Delving_Into_Digital_SoundNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: p_delving_into_digital_sound
+DEBUG:root:FILENAME: PDelvingIntoDigitalSound
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: 
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating PDelvingIntoDigitalSound test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://code.google.com/p/lutekinduct-capstone/
+DEBUG:root:Create class name P_Lutekinduct_Capstone
+DEBUG:root:P_Lutekinduct_CapstoneNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: p_lutekinduct_capstone
+DEBUG:root:FILENAME: PLutekinductCapstone
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: 
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating PLutekinductCapstone test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://lutekinduct.blogspot.com/
+DEBUG:root:Create class name 
+INFO:root:http://wds-project.github.com/Capstone/index.html
+DEBUG:root:Create class name Capstone_Index_Html
+DEBUG:root:Capstone_Index_HtmlNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: Capstone_index_html
+DEBUG:root:FILENAME: CapstoneIndexHtml
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: index.html
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CapstoneIndexHtml test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://wdscapstone.blogspot.com/
+DEBUG:root:Create class name 
+INFO:root:http://biosproject.github.com/biosRepo
+DEBUG:root:Create class name Biosrepo
+DEBUG:root:BiosrepoNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: biosRepo
+DEBUG:root:FILENAME: Biosrepo
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: biosRepo
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating Biosrepo test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://projectbios.github.com/
+DEBUG:root:Create class name 
+INFO:root:http://scanners.github.com/3DScanner/
+DEBUG:root:Create class name 3Dscanner
+DEBUG:root:3DscannerNot Found
+DEBUG:root:Scraping page
+DEBUG:root:Class name cannot start with a digit
+DEBUG:root:URL: c3DScanner
+DEBUG:root:FILENAME: c3Dscanner
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: 
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating c3Dscanner test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:http://barretgm14.wordpress.com/
+DEBUG:root:Create class name 
+INFO:root:http://jeff3dscanner.blogspot.com/
+DEBUG:root:Create class name 
+INFO:root:http://tylergunter.wordpress.com/
+DEBUG:root:Create class name 
+INFO:root:https://github.com/cliffcolon/AutoGen_Webdriver_POs
+DEBUG:root:Create class name Cliffcolon_Autogen_Webdriver_Pos
+DEBUG:root:Cliffcolon_Autogen_Webdriver_PosNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: cliffcolon_AutoGen_Webdriver_POs
+DEBUG:root:FILENAME: CliffcolonAutogenWebdriverPos
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: AutoGen_Webdriver_POs
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CliffcolonAutogenWebdriverPos test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:https://github.com/cliffcolon/AutoGen_Webdriver_POs/wiki/Weekly-Progress-Reports
+DEBUG:root:Create class name Cliffcolon_Autogen_Webdriver_Pos_Wiki_Weekly_Progress_Reports
+DEBUG:root:Cliffcolon_Autogen_Webdriver_Pos_Wiki_Weekly_Progress_ReportsNot Found
+DEBUG:root:Scraping page
+DEBUG:root:URL: cliffcolon_AutoGen_Webdriver_POs_wiki_Weekly_Progress_Reports
+DEBUG:root:FILENAME: CliffcolonAutogenWebdriverPosWikiWeeklyProgressReports
+DEBUG:root:Parse page title
+DEBUG:root:Generate variable definition:_page_title
+DEBUG:root:Title: CSCE 499 - Home
+DEBUG:root:Parse all DIVS with ids
+DEBUG:root:banner-top
+DEBUG:root:Generate variable definition:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate variable definition:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate variable definition:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate variable definition:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate variable definition:_id_ft_locator
+DEBUG:root:Parse H1
+DEBUG:root:<h1>CSCE 499 Capstone -- 2012-2013</h1>
+DEBUG:root:Parse Image
+DEBUG:root:Parse iFrames
+DEBUG:root:Parse Radio Buttons
+DEBUG:root:Parse Checkbox Buttons
+DEBUG:root:Parse Text Boxes
+DEBUG:root:Parse Text Box
+DEBUG:root:Parse Buttons
+DEBUG:root:Base Name: Weekly-Progress-Reports
+DEBUG:root:banner-top
+DEBUG:root:Generate FindElement:_id_banner_top_locator
+DEBUG:root:nav
+DEBUG:root:Generate FindElement:_id_nav_locator
+DEBUG:root:main-content
+DEBUG:root:Generate FindElement:_id_main_content_locator
+DEBUG:root:bd
+DEBUG:root:Generate FindElement:_id_bd_locator
+DEBUG:root:ft
+DEBUG:root:Generate FindElement:_id_ft_locator
+DEBUG:root:Generating CliffcolonAutogenWebdriverPosWikiWeeklyProgressReports test script.
+DEBUG:root:Generating test case: test_is_id_banner_top_locator_available
+DEBUG:root:Generating test case: test_is_id_nav_locator_available
+DEBUG:root:Generating test case: test_is_id_main_content_locator_available
+DEBUG:root:Generating test case: test_is_id_bd_locator_available
+DEBUG:root:Generating test case: test_is_id_ft_locator_available
+INFO:root:0. http://www.cs.plu.edu/courses/csce499/index.html
+INFO:root:1. http://www.cs.plu.edu/courses/csce499/syllabus.html
+INFO:root:2. http://www.cs.plu.edu/courses/csce499/schedule.html
+INFO:root:3. http://www.cs.plu.edu/courses/csce499/resources.html
+INFO:root:4. http://www.cs.plu.edu/499
+INFO:root:5. https://groups.google.com/a/plu.edu/d/forum/csce499-2012-2013-group?hl=en
+INFO:root:6. http://www.cs.plu.edu/courses/csce499/requirements.html
+INFO:root:7. http://www.cs.plu.edu/courses/csce499/doc-standards.html
+INFO:root:8. http://www.cs.plu.edu/courses/csce499/doc-requirements.html
+INFO:root:9. http://www.cs.plu.edu/courses/csce499/doc-ba-phase1.html
+INFO:root:10. http://www.cs.plu.edu/courses/csce499/presentation-requirements.html
+INFO:root:11. http://www.cs.plu.edu/courses/csce499/doc-design.html
+INFO:root:12. http://www.cs.plu.edu/courses/csce499/doc-ba-phase2.html
+INFO:root:13. http://www.cs.plu.edu/courses/csce499/presentation-design.html
+INFO:root:14. http://www.cs.plu.edu/courses/csce499/design-presentation-schedule.html
+INFO:root:15. http://www.cs.plu.edu/courses/csce499/tech-presentation1-schedule.html
+INFO:root:16. http://www.cs.plu.edu/courses/csce499/tech-presentation2-schedule.html
+INFO:root:17. http://www.cs.plu.edu/courses/csce499/acfest-schedule.html
+INFO:root:18. http://www.cs.plu.edu/courses/csce499/doc-final.html
+INFO:root:19. https://github.com/Jessicas-Capstone/Project-Repository
+INFO:root:20. http://geldshot.blogspot.com/search/label/Capstone
+INFO:root:21. https://github.com/timshurd/Robo_Arm
+INFO:root:22. http://wds-project.github.com/Capstone/index.html
+INFO:root:23. http://biosproject.github.com/biosRepo
+INFO:root:24. https://github.com/cliffcolon/AutoGen_Webdriver_POs
+INFO:root:25. https://github.com/cliffcolon/AutoGen_Webdriver_POs/wiki/Weekly-Progress-Reports

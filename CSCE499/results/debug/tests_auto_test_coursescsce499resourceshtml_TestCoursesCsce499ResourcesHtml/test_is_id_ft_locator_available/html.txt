@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+	<title>CSCE 499 - Home</title>
+	
+	<link href="styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+<div id="banner-top">
+<div class="logo"></div>
+<h1>CSCE 499 Capstone -- 2012-2013</h1>
+<div id="nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="syllabus.html">Syllabus</a></li>
+<li><a href="schedule.html">Schedule</a></li>
+<li><a href="resources.html">Resources</a></li>
+</ul>
+</div>
+</div>
+
+<div id="main-content">
+<div id="bd">
+			
+<h1 id="csce_499_resources">CSCE 499 Resources</h1>
+
+<h2 id="latex_templatesexamples">LaTeX Templates/Examples</h2>
+
+<ul>
+<li><a href="article-template.tex">Basic Article Template</a></li>
+
+<li><a href="bibtex-example.bib">Example BibTeX file</a></li>
+</ul>
+
+<h2 id="latex">LaTeX</h2>
+
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/Latex">LaTeX Wikibook</a></li>
+
+<li><a href="http://tug.org/protext/">LaTeX for Windows</a></li>
+
+<li><a href="http://tug.org/mactex/">LaTeX for Mac OS X</a></li>
+
+<li><a href="http://tug.org/texlive/">LaTeX for Linux</a></li>
+
+<li><a href="http://ctan.org/">LaTeX packages on CTAN</a></li>
+
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Algorithms_and_Pseudocode">Algorithms and pseudocode in LaTeX</a></li>
+
+<li><a href="http://scribtex.com/">ScribTeX - Online LaTeX editor</a></li>
+</ul>
+
+<h2 id="bibtex">BibTeX</h2>
+
+<ul>
+<li><a href="http://en.wikibooks.org/wiki/LaTeX/Bibliography_Management">BibTeX Section in LaTeX Wikibook</a></li>
+
+<li><a href="http://www.tex.ac.uk/cgi-bin/texfaq2html?label=citeURL">Citing web sites</a></li>
+</ul>
+
+<h2 id="web_sitecode_hosting">Web site/Code Hosting</h2>
+
+<ul>
+<li><a href="https://github.com">GitHub</a></li>
+
+<li><a href="http://gitorious.org/">Gitorious</a></li>
+
+<li><a href="http://code.google.com/">Google Code</a></li>
+
+<li>Google Sites: Log on to PLU Gmail, click on “Sites”</li>
+
+<li>CSCE Project account <a href="https://hub.cs.plu.edu">apply at The Hub</a></li>
+</ul>
+
+<h2 id="graduate_school">Graduate School</h2>
+
+<ul>
+<li><a href="http://www.plu.edu/nsci/grad-advising/home.php">Graduate School Advice from PLU Natural Sciences Division</a></li>
+</ul>
+</div> <!-- #bd -->
+
+</div> <!-- #main-content -->
+
+<div id="ft"></div>
+
+
+
+
+
+
+</body><canvas id="fxdriver-screenshot-canvas" style="display: none;" width="978" height="739"></canvas></html>
